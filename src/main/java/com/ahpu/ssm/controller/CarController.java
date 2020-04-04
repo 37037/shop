@@ -2,15 +2,17 @@ package com.ahpu.ssm.controller;
 
 import javax.servlet.http.HttpSession;
 
+import com.ahpu.ssm.pojo.*;
+import com.ahpu.ssm.service.UserService;
+import com.ahpu.ssm.util.UUIDUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ahpu.ssm.pojo.Car;
-import com.ahpu.ssm.pojo.CarItem;
-import com.ahpu.ssm.pojo.Product;
 import com.ahpu.ssm.service.admin.ProductService;
+
+import java.util.List;
 
 @RequestMapping("car")
 @Controller
@@ -18,6 +20,8 @@ public class CarController {
 	
 	@Autowired
 	ProductService service;
+	@Autowired
+	UserService service1;
 	
 	
 	@RequestMapping("/addCar")
@@ -40,28 +44,65 @@ public class CarController {
 		mav.setViewName("cart");
 		return mav;
 	}
+	@RequestMapping("/addCar1")
+	public ModelAndView addCar1(String pid, int count,HttpSession session) {
+		ModelAndView mav=new ModelAndView();
+		User user=(User)session.getAttribute("user");
+		//通过pid找到商品内容
+		Product p = service.findProductByPid(pid);
+		//将count加入到购物车中
+//		CarItem item = new CarItem();
+//		item.setProduct(p);
+//		item.setCount(count);
+		Cart cart=new Cart();
+		cart.setCid(UUIDUtil.getUUId());
+		cart.setCount(count);
+		cart.setProduct(p.getPimage());
+		cart.setUid(user.getUsername());
+		cart.setPrice(p.getShop_price());
+		//将购物车项加入到购物车
+		if(service1.isIncart(cart)){
+			service1.updateCart(cart);
+		}else {service1.insetcart(cart);
+		}
+
+//		Car car=(Car) session.getAttribute("car");
+//		if (car==null) {
+//			car=new Car();
+//		}
+//		car.add2Car(item);
+//		session.setAttribute("car", car);
+		List<Cart> carts=service1.findCart(user);
+
+		mav.addObject("carts",carts);
+		mav.setViewName("cart");
+		return mav;
+	}
 	@RequestMapping("/showCar")
-	public String showCar() {
-		return "cart";
+	public ModelAndView showCar(HttpSession session) {
+		User user=(User)session.getAttribute("user");
+		List<Cart> carts=service1.findCart(user);
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("carts",carts);
+		mav.setViewName("cart");
+		return mav;
 	}
 	
 	@RequestMapping("/delcar")
-	public String delCar(String pid,HttpSession session) {
-		
-		Car car=(Car) session.getAttribute("car");
-		
-		car.remove(pid);
-		
-		
-		return "cart";
+	public  ModelAndView delCar(String cid,HttpSession session) {
+		service1.deleteproduct(cid);
+		User user=(User)session.getAttribute("user");
+		List<Cart> carts=service1.findCart(user);
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("carts",carts);
+		mav.setViewName("cart");
+		return mav;
 	}
 
 	@RequestMapping("/clearcar")
-	public String clearCar(String pid,HttpSession session) {
-		
-		Car car=(Car) session.getAttribute("car");
-		
-		car.clear();
+	public String clearCar(HttpSession session) {
+		User user=(User)session.getAttribute("user");
+		service1.deletecar(user);
 		
 		
 		return "cart";

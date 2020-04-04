@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ahpu.ssm.pojo.User;
@@ -55,12 +56,15 @@ public class UserController {
 			
 			// 添加到session
 			session.setAttribute("user", user);
+			mav.setViewName("index");
+			return mav;
 		}else {
 			// 失败
 			mav.addObject("msg","登录失败");
+			mav.setViewName("msg");
+			return mav;
 		}
-		mav.setViewName("msg");
-		return mav;
+
 	}
 	
 	@RequestMapping("/doRegist")//注册
@@ -93,6 +97,42 @@ public class UserController {
 		session.invalidate();
 		return "index";
 	}
+	@RequestMapping("/editmessage")
+	public ModelAndView editmessage(){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("editmessage");
+		return mav;
+	}
+	@RequestMapping("pass")
+	@ResponseBody
+	public String dopassword(String upwd,HttpSession session) {
+
+		User loginUser = (User) session.getAttribute("user");
+		loginUser.setPassword(upwd);
+		if (service.findUserByUsernameAndPassword(loginUser)) {
+			String msg = "yes";
+			return msg;
+		} else {
+			String msg = "no";
+			return msg;
+
+		}
+	}
+	@RequestMapping("pass2")
+	@ResponseBody
+	public String dopassword2(String npwd,HttpSession session) {
+
+		User loginUser = (User) session.getAttribute("user");
+		loginUser.setPassword(npwd);
+		if (service.updatepwd(loginUser)) {
+			String msg = "yes";
+			return msg;
+		} else {
+			String msg = "no";
+			return msg;
+
+		}
+	}
 	@RequestMapping("/tocar")
 	public ModelAndView toCar(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
@@ -105,6 +145,7 @@ public class UserController {
 		mav.setViewName("cart");
 		return mav;
 	}
+
 	
 
 }

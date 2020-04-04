@@ -58,7 +58,7 @@
 
 						<div style="padding:10px;border:1px solid #e7dbb1;width:330px;margin:15px 0 10px 0;;background-color: #fffee6;">
 <%--							<div style="margin:5px 0 10px 0;">白色</div>--%>
-							<form action="${pageContext.request.contextPath }/car/addCar.action" method="post">
+							<form action="${pageContext.request.contextPath }/car/addCar1.action" method="post">
 								<input type="hidden" name="methodStr" value="add2Car">
 								<input type="hidden" name="pid" value="${p.pid }">
 								<div style="border-bottom: 1px solid #faeac7;margin-top:20px;padding-left: 10px;">购买数量:
@@ -83,28 +83,29 @@
 					</div>
 
 					<div style="background-color:#d3d3d3;width:930px;padding:10px 10px;margin:10px 0 10px 0;">
-						<strong>商品参数</strong>
+						<strong>商品信息</strong>
 					</div>
 					<div style="margin-top:10px;width:900px;">
-						<table class="table table-bordered">
-							<tbody>
-								<tr class="active">
-									<th colspan="2">基本参数</th>
-								</tr>
-								<tr>
-									<th width="10%">级别</th>
-									<td width="30%">标准</td>
-								</tr>
-								<tr>
-									<th width="10%">标重</th>
-									<td>500</td>
-								</tr>
-								<tr>
-									<th width="10%">浮动</th>
-									<td>200</td>
-								</tr>
-							</tbody>
-						</table>
+<%--						<table class="table table-bordered">--%>
+<%--							<tbody>--%>
+<%--								<tr class="active">--%>
+<%--									<th colspan="2">基本参数</th>--%>
+<%--								</tr>--%>
+<%--								<tr>--%>
+<%--									<th width="10%">级别</th>--%>
+<%--									<td width="30%">标准</td>--%>
+<%--								</tr>--%>
+<%--								<tr>--%>
+<%--									<th width="10%">标重</th>--%>
+<%--									<td>500</td>--%>
+<%--								</tr>--%>
+<%--								<tr>--%>
+<%--									<th width="10%">浮动</th>--%>
+<%--									<td>200</td>--%>
+<%--								</tr>--%>
+<%--							</tbody>--%>
+<%--						</table>--%>
+					${p.pdesc }
 					</div>
 
 					<div style="background-color:#d3d3d3;width:900px;">

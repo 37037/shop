@@ -20,6 +20,7 @@
 			<div class="container-fluid">
 				<div class="main_con">
 					<h2>${msg }</h2>
+					<a href="${pageContext.request.contextPath }/login.action">返回登录页</a>
 				
 					
 				</div>

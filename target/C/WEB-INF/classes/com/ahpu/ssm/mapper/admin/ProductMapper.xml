@@ -60,7 +60,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id = "findHotProduct"  resultType="com.ahpu.ssm.pojo.Product">
 		select <include refid="Base_Column_List" /> from product
-			where is_hot = 1 limit 0,9;
+			where is_hot = 1 ;
 	</select>
 	
 	<!-- Product findProductByPid(String pid); -->

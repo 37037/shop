@@ -100,17 +100,29 @@ font {
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-    <input type="submit"  width="100" value="登录" name="submit" border="0"
+    <input type="submit"  width="100" value="登录" id="submit" name="submit" border="0"
     style="background: url('${pageContext.request.contextPath}/images/login.gif') repeat scroll 0 0 rgba(0, 0, 0, 0);
     height:35px;width:100px;color:white;">
     </div>
   </div>
 
-</div>			
+</div>
 	</div>
 </div>
 
 
 
 		
-</body></html>
+</body>
+<script>
+    
+    
+    $("#submit").click(function () {
+        var check="${msg}";
+        if(check==1){
+            alert("登录失败")
+        }
+    })
+</script>
+
+</html>

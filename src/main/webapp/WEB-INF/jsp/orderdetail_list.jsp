@@ -48,7 +48,7 @@
 									<tr class="active">
 										<td width="60" width="40%">
 											<input type="hidden" name="id" value="22">
-											<img src="src='${pageContext.request.contextPath}/pic/${orderitem.product.pimage}" width="70" height="60">
+											<img src="${pageContext.request.contextPath}/pic/${orderitem.product.pimage}" width="70" height="60">
 										</td>
 										<td width="30%">
 											<a target="_blank">${orderitem.product.pname }</a>

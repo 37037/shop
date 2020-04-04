@@ -18,6 +18,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from user where username = #{username} and password = #{password};
 	
 	</select>
+	<update id="updatepwd" parameterType="com.ahpu.ssm.pojo.User">
+		update user set password=#{password} where username=#{username};
+	</update>
+	<insert id="insercart" parameterType="com.ahpu.ssm.pojo.Cart">
+		insert  into car(cid,uid,product,count,price)
+		values(#{cid},#{uid},#{product},#{count},#{price});
+	</insert>
+	<select id="findCart" parameterType="com.ahpu.ssm.pojo.User" resultType="com.ahpu.ssm.pojo.Cart">
+		select * from car where uid=#{username}
+	</select>
+	<select id="isIncart" parameterType="com.ahpu.ssm.pojo.Cart" resultType="int" >
+		select count(*) from car where product=#{product} and uid=#{uid}
+	</select>
+	<update id="updateCart" parameterType="com.ahpu.ssm.pojo.Cart">
+		update car set count=count+#{count} where product=#{product} and uid=#{uid}
+	</update>
+	<delete id="deleteproduct" parameterType="java.lang.String">
+		delete from car where cid=#{cid}
+	</delete>
+	<delete id="deletecar" parameterType="com.ahpu.ssm.pojo.User">
+		delete from car where uid=#{username}
+	</delete>
 
 
 </mapper>
