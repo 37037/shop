@@ -1,11 +1,10 @@
 package com.ahpu.ssm.service;
 
-import com.ahpu.ssm.pojo.Cart;
+import com.ahpu.ssm.pojo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ahpu.ssm.mapper.UserMapper;
-import com.ahpu.ssm.pojo.User;
 
 import java.util.List;
 
@@ -19,6 +18,16 @@ public class UserServiceImpl implements UserService{
 	public void addUser(User user) {
 		// TODO Auto-generated method stub
 		mapper.addUser(user);
+	}
+
+	@Override
+	public boolean adminLogin(admin admin) {
+		int c=mapper.adminLogin(admin);
+		if(c > 0) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 	@Override
@@ -76,6 +85,49 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public void deletecar(User user) {
 		mapper.deletecar(user);
+	}
+
+	@Override
+	public void addnotice(notice notice) {
+		mapper.addnotice(notice);
+	}
+
+	@Override
+	public notice find() {
+		return  mapper.find();
+	}
+
+	@Override
+	public boolean haveusername(String username) {
+		int count;
+		count=mapper.haveusername(username);
+		if(count>0){
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+	@Override
+	public void deletebycid(String cid) {
+		mapper.deletebycid(cid);
+	}
+
+	@Override
+	public void add(Address a) {
+		mapper.add(a);
+
+
+	}
+
+	@Override
+	public List<Address> getlist(User user) {
+		return mapper.getlist(user);
+	}
+
+	@Override
+	public void deleteaid(String aid) {
+		mapper.deleteaid(aid);
 	}
 
 

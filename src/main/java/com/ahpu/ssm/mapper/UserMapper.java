@@ -1,13 +1,13 @@
 package com.ahpu.ssm.mapper;
 
-import com.ahpu.ssm.pojo.Cart;
-import com.ahpu.ssm.pojo.User;
+import com.ahpu.ssm.pojo.*;
 
 import java.util.List;
 
 public interface UserMapper {
 
 	void addUser(User user);
+	int adminLogin(admin admin);
 
 	int findUserByUsernameAndPassword(User user);
 	boolean updatepwd(User user);
@@ -17,6 +17,15 @@ public interface UserMapper {
 	void updateCart(Cart cart);
 	void deleteproduct( String cid);
 	void deletecar(User user);
+	void addnotice(notice notice);
+	notice find();
+	int haveusername(String s);
+	void deletebycid(String cid);
+	void add(Address a);
+	List<Address> getlist(User user);
+	void deleteaid(String aid);
+
+
 
 
 

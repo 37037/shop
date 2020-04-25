@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values(#{itemid},#{count},#{subtotal},#{order.oid},#{product.pid})
 	</insert>
 	<update id="updateOrder" parameterType="com.ahpu.ssm.pojo.Order">
-		update orders set address=#{address},name=#{name},telephone=#{telephone},ordertime=#{ordertime},state=#{state},total=#{total},usernameid=#{user.username} 
+		update orders set address=#{address},name=#{name},telephone=#{telephone},ordertime=#{ordertime},state=#{state},total=#{total}
 		where oid=#{oid}
 	</update>
 	<select id="selectOrderByOid" resultType="com.ahpu.ssm.pojo.Order" parameterType="String" >
@@ -24,12 +24,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="selectOrderByUsernameid" resultType="com.ahpu.ssm.pojo.Order" parameterType="String" >
 		 select * from Orders where usernameid = #{usernameid}
+
+
 	</select>
 	
 	
 
 	<select id="selectOrderItemByOid" resultMap="ProdctResultMap" parameterType="String" >
-		select orderitem.*,product.pname,product.pid,product.pimage,product.shop_price 
+		select orderitem.*,product.*
 		from orderitem,product
 		where orderitem.pid=product.pid and oid = #{oid}
 	</select>
@@ -41,6 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!--List<Product> findByPage(Map<String, Object> map);-->
 	<select id="findByPage" parameterType="Map" resultType="com.ahpu.ssm.pojo.Order">
 		select <include refid="Base_Column_List" /> from orders
+		order by ordertime desc
 			limit #{start},#{size}
 	</select>
 	
@@ -63,6 +66,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select <include refid="Base_Column_List" /> 
 		from orders
 		where usernameid = #{usernameid}
+		order by ordertime desc
 		limit #{start},#{size}
 	</select>
 	
@@ -75,6 +79,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<result column="pname" property="pname"></result>
 			<result column="pimage" property="pimage"></result>
 			<result column="shop_price" property="shop_price"></result>
+			<result column="pcount" property="pcount"></result>
+			<result column="pdate" property="pdate"></result>
+			<result column="is_hot" property="is_hot"></result>
+			<result column="pdesc" property="pdesc"></result>
+			<result column="is_latest" property="is_latest"></result>
+			<result column="market_price" property="market_price"></result>
+			<result column="cid" property="cid"></result>
 		</collection>
 	</resultMap>
 	
@@ -89,6 +100,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectCount" resultType="int">
 			select count(*) from orders;
 	</select>
+	<select id="selectCountqita" parameterType="int" resultType="int">
+			select count(*) from orders where state=#{state};
+	</select>
 	
 	<select id="selectCountByUsernameid" parameterType="String" resultType="int">
 			select count(*) from orders where usernameid=#{usernameid};
@@ -99,7 +113,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<update id="deleteOrder" parameterType="com.ahpu.ssm.pojo.Order">
-		delete from orders where oid = #{oid}
+		delete from orders where
+		oid = #{oid}
 	</update>
+	<select id="findcid" parameterType="String" resultType="com.ahpu.ssm.pojo.Cart">
+		select * from car where cid=#{cid}
+	</select>
 	
 </mapper>

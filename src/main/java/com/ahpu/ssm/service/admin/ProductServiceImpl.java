@@ -4,14 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.ahpu.ssm.pojo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ahpu.ssm.mapper.admin.CategoryMapper;
 import com.ahpu.ssm.mapper.admin.ProductMapper;
-import com.ahpu.ssm.pojo.Category;
-import com.ahpu.ssm.pojo.PageBean;
-import com.ahpu.ssm.pojo.Product;
 
 @Service
 public class ProductServiceImpl implements ProductService{
@@ -75,6 +73,14 @@ public class ProductServiceImpl implements ProductService{
 		p.setCategory(c);
 		return p;
 	}
+
+	@Override
+	public Product findProductByPimage(String pimage) {
+		Product p=mapper.findProductByPimage(pimage);
+		Category c = cmapper.queryCategoryByCid(p.getCid());
+		p.setCategory(c);
+		return p;
+}
 
 	@Override
 	public PageBean listProductByCategory(String cid, int curPage) {
@@ -154,7 +160,12 @@ public class ProductServiceImpl implements ProductService{
 		
 		return page;
 	}
-	
 
-	
+	@Override
+	public void updateCount(Cart c) {
+		mapper.updateCount(c);
+
+
+	}
+
 }

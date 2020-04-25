@@ -33,13 +33,13 @@ TH {
 					<img width="100%" src="${pageContext.request.contextPath}/images/top_01.jpg">
 				</td>
 
-				<td width="100%" background="${pageContext.request.contextPath}/images/top_100.jpg">
+				<td width="100%" align="center"  style="background: grey;font-size: 20px">网上商城管理系统
 				</td>
 			</tr>
 		</table>
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
-				<td height="30" valign="bottom" background="${pageContext.request.contextPath}/images/mis_01.jpg">
+				<td height="30" valign="bottom" style="background: grey">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td width="85%" align="left">
@@ -49,7 +49,7 @@ TH {
 tmpDate = new Date();
 date = tmpDate.getDate();
 month= tmpDate.getMonth() + 1 ;
-year= tmpDate.getYear();
+year= tmpDate.getFullYear()
 document.write(year);
 document.write("年");
 document.write(month);
@@ -79,21 +79,21 @@ else
 							<td width="15%">
 								<table width="100%" border="0" cellspacing="0" cellpadding="0">
 									<tr>
-										<td width="16"
-											background="${pageContext.request.contextPath}/images/mis_05b.jpg">
-											<img
-												src="${pageContext.request.contextPath}/images/mis_05a.jpg"
-												width="6" height="18">
-										</td>
-										<td width="155" valign="bottom"
-											background="${pageContext.request.contextPath}/images/mis_05b.jpg">
-											用户名：
-											<font color="blue"><s:property value="#session.existAdminUser.username"/></font>
-										</td>
-										<td width="10" align="right"
-											background="${pageContext.request.contextPath}/images/mis_05b.jpg">
-											<img src="${pageContext.request.contextPath}/images/mis_05c.jpg" width="6" height="18">
-										</td>
+<%--										<td width="16"--%>
+<%--											background="${pageContext.request.contextPath}/images/mis_05b.jpg">--%>
+<%--											<img--%>
+<%--												src="${pageContext.request.contextPath}/images/mis_05a.jpg"--%>
+<%--												width="6" height="18">--%>
+<%--										</td>--%>
+<%--										<td width="155" valign="bottom"--%>
+<%--											background="${pageContext.request.contextPath}/images/mis_05b.jpg">--%>
+<%--											用户名：--%>
+<%--											<font color="blue"><s:property value="#session.admin.acount"/></font>--%>
+<%--										</td>--%>
+<%--										<td width="10" align="right"--%>
+<%--											background="${pageContext.request.contextPath}/images/mis_05b.jpg">--%>
+<%--											<img src="${pageContext.request.contextPath}/images/mis_05c.jpg" width="6" height="18">--%>
+<%--										</td>--%>
 									</tr>
 								</table>
 							</td>

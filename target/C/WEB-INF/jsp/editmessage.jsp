@@ -49,9 +49,9 @@
 
 
 
-<div class="container"  style="width:100%;height:600px;background:#FF2C4C url('${pageContext.request.contextPath}/images/loginbg.jpg')repeat;background-size:cover;">
+<div class="container"  style="width:100%;height:600px;background:url('${pageContext.request.contextPath}/image/regist_bg.jpg');">
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-4">
             <!--<img src="${pageContext.request.contextPath}/image/login.jpg" width="500" height="330" alt="会员登录" title="会员登录">-->
         </div>
 
@@ -87,16 +87,17 @@
       <img src="${pageContext.request.contextPath}/code"/>
     </div>
     -->
-            </div>
-
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-<%--                    <input type="submit"  width="100" value="修改" name="submit" border="0"--%>
-<%--                           style="background: url('${pageContext.request.contextPath}/images/login.gif') repeat scroll 0 0 rgba(0, 0, 0, 0);--%>
-<%--                                   height:35px;width:100px;color:white;">--%>
-                    <button id="sub">修改</button>
+                    <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <%--                    <input type="submit"  width="100" value="修改" name="submit" border="0"--%>
+                        <%--                           style="background: url('${pageContext.request.contextPath}/images/login.gif') repeat scroll 0 0 rgba(0, 0, 0, 0);--%>
+                        <%--                                   height:35px;width:100px;color:white;">--%>
+                        <button id="sub">修改</button>
+                    </div>
                 </div>
             </div>
+
+
 
         </div>
     </div>

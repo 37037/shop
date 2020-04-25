@@ -2,6 +2,7 @@ package com.ahpu.ssm.service.admin;
 
 import java.util.List;
 
+import com.ahpu.ssm.pojo.Cart;
 import com.ahpu.ssm.pojo.Order;
 import com.ahpu.ssm.pojo.OrderItem;
 import com.ahpu.ssm.pojo.PageBean;
@@ -18,4 +19,5 @@ public interface OrderService {
 	PageBean listOrderQita(int curPage , int state);
 	PageBean userListOrder(int curPage,String usernameid);
 	PageBean userListDetail(int curPage,String oid);
+	Cart findcid(String cid);
 }

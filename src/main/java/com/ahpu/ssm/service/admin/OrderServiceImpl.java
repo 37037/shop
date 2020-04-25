@@ -4,15 +4,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.ahpu.ssm.pojo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ahpu.ssm.mapper.admin.OrderMapper;
 import com.ahpu.ssm.mapper.admin.ProductMapper;
-import com.ahpu.ssm.pojo.Order;
-import com.ahpu.ssm.pojo.OrderItem;
-import com.ahpu.ssm.pojo.PageBean;
-import com.ahpu.ssm.pojo.Product;
+
 @Service
 public class OrderServiceImpl implements OrderService{
 
@@ -71,7 +69,7 @@ public class OrderServiceImpl implements OrderService{
 		PageBean<Order> page = new PageBean<Order>();
 		
 		page.setCurPage(curPage);
-		int totalCount = mapper.selectCount();
+		int totalCount = mapper.selectCountqita(state);
 		page.setTotalSize(totalCount);
 		
 		double total = totalCount;
@@ -138,6 +136,11 @@ public class OrderServiceImpl implements OrderService{
 		List<OrderItem> list = mapper.findByPage4(map);
 		page.setList(list);
 		return page;
+	}
+
+	@Override
+	public Cart findcid(String cid) {
+		return mapper.findcid(cid);
 	}
 
 	@Override

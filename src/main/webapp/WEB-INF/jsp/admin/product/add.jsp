@@ -22,9 +22,9 @@
 		<!--  -->
 		<form id="userAction_save_do" name="Form1" action="${pageContext.request.contextPath}/admin/addProducts.action" method="post" enctype="multipart/form-data">
 			&nbsp;
-			<table cellSpacing="1" cellPadding="5" width="100%" align="center" bgColor="#eeeeee" style="border: 1px solid #8ba7e3" border="0">
+			<table cellSpacing="1" cellPadding="5" width="80%" align="center" bgColor="gray" style="border: 1px solid grey" border="0">
 				<tr>
-					<td class="ta_01" align="center" bgColor="#afd1f3" colSpan="4"
+					<td class="ta_01" align="center" bgColor="gray" colSpan="4"
 						height="26">
 						<strong><STRONG>添加商品</STRONG>
 						</strong>
@@ -71,13 +71,14 @@
 					</td>
 					
 					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
-						是否最新：
+						数量：
 					</td>
 					<td class="ta_01" bgColor="#ffffff">
-						<select name="is_latest">
-							<option value="1">是</option>
-							<option value="0">否</option>
-						</select>
+<%--						<select name="is_latest">--%>
+<%--							<option value="1">是</option>--%>
+<%--							<option value="0">否</option>--%>
+<%--						</select>--%>
+						<input type="number" name="pcount">
 					</td>
 					
 				</tr>

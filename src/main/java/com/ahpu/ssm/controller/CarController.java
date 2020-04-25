@@ -8,6 +8,7 @@ import com.ahpu.ssm.util.UUIDUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ahpu.ssm.service.admin.ProductService;
@@ -23,7 +24,23 @@ public class CarController {
 	@Autowired
 	UserService service1;
 	
-	
+	@RequestMapping("/updatecount")
+	@ResponseBody
+	public String updateCount(String name,Integer count,HttpSession session){
+		User user=(User)session.getAttribute("user");
+		Cart c=new Cart();
+		c.setProductname(name);
+		c.setUid(user.getUsername());
+		c.setCount(count);
+		System.out.println(c.getCount());
+		System.out.println(c.getUid());
+		System.out.println(c.getProductname());
+		service.updateCount(c);
+			String msg="yes";
+			return msg;
+
+
+	}
 	@RequestMapping("/addCar")
 	public ModelAndView addCar(String pid, int count,HttpSession session) {
 		ModelAndView mav = new ModelAndView();
@@ -56,6 +73,7 @@ public class CarController {
 //		item.setCount(count);
 		Cart cart=new Cart();
 		cart.setCid(UUIDUtil.getUUId());
+		cart.setProductname(p.getPname());
 		cart.setCount(count);
 		cart.setProduct(p.getPimage());
 		cart.setUid(user.getUsername());

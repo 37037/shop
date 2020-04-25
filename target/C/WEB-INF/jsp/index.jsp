@@ -10,12 +10,14 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css" type="text/css" />
 		<script src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js" type="text/javascript"></script>
 		<script src="${pageContext.request.contextPath}/js/bootstrap.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/layer/layer.js"></script>
+
 	</head>
 	<script type="text/javascript">
 		$(function() {
 			$.getJSON("${pageContext.request.contextPath}/hotProduct.action",function(result){
 				$(result).each(function(index,element) {
-					$("#hot").append("<div class='col-md-2' style='text-align:center;height:200px;padding:10px 0px;'><a href='${pageContext.request.contextPath}/infoProduct.action?pid="+element.pid+"'><img src='${pageContext.request.contextPath}/pic/"+element.pimage+"' width='130' height='130' style='display: inline-block;'></a><p><a href='${pageContext.request.contextPath}/product?methodStr=findByPid&pid="+element.pid+"' style='color:#666'>"+element.pname+"</a></p><p><font color='#E4393C' style='font-size:16px'>&yen;"+element.shop_price+"</font></p></div>")
+					$("#hot").append("<div class='col-md-2' style='text-align:center;height:200px;padding:10px 0px;'><a href='${pageContext.request.contextPath}/infoProduct.action?pid="+element.pid+"'><img src='${pageContext.request.contextPath}/pic/"+element.pimage+"' width='130' height='130' style='display: inline-block;'></a><p><a href='${pageContext.request.contextPath}/infoProduct.action?pid="+element.pid+"' style='color:#666'>"+element.pname+"</a></p><p><font color='#E4393C' style='font-size:16px'>&yen;"+element.shop_price+"</font></p></div>")
 				})
 			})
 			
@@ -23,10 +25,28 @@
 			//发送请求，获取最新商品信息
 			$.getJSON("${pageContext.request.contextPath}/latestProduct.action",function(result){
 				$(result).each(function(index,element) {
-					$("#latest").append("<div class='col-md-2' style='text-align:center;height:200px;padding:10px 0px;'><a href='${pageContext.request.contextPath}/infoProduct.action?pid="+element.pid+"'><img src='${pageContext.request.contextPath}/pic/"+element.pimage+"' width='130' height='130' style='display: inline-block;'></a><p><a href='${pageContext.request.contextPath}/product?methodStr=findByPid&pid="+element.pid+"' style='color:#666'>"+element.pname+"</a></p><p><font color='#E4393C' style='font-size:16px'>&yen;"+element.shop_price+"</font></p></div>")
+					$("#latest").append("<div class='col-md-2' style='text-align:center;height:200px;padding:10px 0px;'><a href='${pageContext.request.contextPath}/infoProduct.action?pid="+element.pid+"'><img src='${pageContext.request.contextPath}/pic/"+element.pimage+"' width='130' height='130' style='display: inline-block;'></a><p><a href='${pageContext.request.contextPath}/infoProduct.action?pid="+element.pid+"' style='color:#666'>"+element.pname+"</a></p><p><font color='#E4393C' style='font-size:16px'>&yen;"+element.shop_price+"</font></p></div>")
 				})
 			})
 		})
+		function gg(){
+			var content="";
+			$.getJSON("${pageContext.request.contextPath}/getnotice.action",function(result){
+
+
+
+				layer.open({
+					type: 1,//0:信息框; 1:页面; 2:iframe层;	3:加载层;	4:tip层
+					title:"公告",//标题
+					area: ['800px', '500px'],//大小
+					shadeClose: true, //点击弹层外区域 遮罩关闭
+					//弹框里面的内容
+					content:result.notice
+				})
+			})
+
+		}
+
 	</script>
 	<body>
 	

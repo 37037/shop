@@ -49,9 +49,9 @@ font {
 	
 	
 	
-<div class="container"  style="width:100%;height:600px;background:#FF2C4C url('${pageContext.request.contextPath}/images/loginbg.jpg')repeat;background-size:cover;">
+<div class="container"  style="width:100%;height:600px;background:url('${pageContext.request.contextPath}/image/regist_bg.jpg');">
 <div class="row"> 
-	<div class="col-md-7">
+	<div class="col-md-4">
 		<!--<img src="${pageContext.request.contextPath}/image/login.jpg" width="500" height="330" alt="会员登录" title="会员登录">-->
 	</div>
 	
@@ -88,14 +88,14 @@ font {
   </div>
    <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" name="auto"> 自动登录
-        </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <label>
-          <input type="checkbox"> 记住用户名
-        </label>
-      </div>
+<%--      <div class="checkbox">--%>
+<%--        <label>--%>
+<%--          <input type="checkbox" name="auto"> 自动登录--%>
+<%--        </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--%>
+<%--        <label>--%>
+<%--          <input type="checkbox"> 记住用户名--%>
+<%--        </label>--%>
+<%--      </div>--%>
     </div>
   </div>
   <div class="form-group">

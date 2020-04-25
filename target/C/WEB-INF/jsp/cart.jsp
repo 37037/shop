@@ -12,6 +12,7 @@
 		<script src="${pageContext.request.contextPath}/js/bootstrap.min.js" type="text/javascript"></script>
 		<!-- 引入自定义css文件 style.css -->
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css" />
+		<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
 		<style>
 			body {
 				margin-top: 20px;
@@ -63,34 +64,40 @@
 						<table class="table table-bordered" id="my">
 							<tbody>
 								<tr class="warning">
+									<th>选择</th>
 									<th>图片</th>
 									<th>商品</th>
 									<th>价格(单位：￥)</th>
 									<th>数量</th>
 									<th>小计(单位：￥)</th>
 									<th>操作</th>
+									<th style="display: none">购物号</th>
 								</tr>
 								<c:forEach items="${carts}" var="entry">
-
 									<tr class="active">
-										<td width="60" width="40%">
-											<input type="hidden" name="id" value="22">
+										<td width="8%"><input type="checkbox" name="option" class="select" onclick="getMoney()" >选中
+										</td>
+										<td  width="12%">
+
 											<img src="${pageContext.request.contextPath}//pic//${entry.product}" width="70" height="60">
 										</td>
-										<td width="30%">
-											<a target="_blank">${entry.uid}</a>
+										<td width="20%">
+											<a target="_blank">${entry.productname}</a>
 										</td>
 										<td width="20%">
 											${entry.price }
 										</td>
+										<td width="20%">
+											<input onblur="up(this)" id="count" onchange="Xiaoji()"   patten="[1-9][0-9]?" oninput="if(value<1){value=1}else if(value>=10){value=10}"  type="number" name="quantity" value="${entry.count }" maxlength="4" size="10">
+										</td>
+										<td width="10%" id="total">
+											<span class="subtotal" name="price"></span>
+										</td>
 										<td width="10%">
-											<input disabled="disabled" type="text" name="quantity" value="${entry.count }" maxlength="4" size="10">
-										</td>
-										<td width="15%" id="total">
-											<span class="subtotal">${entry.count*entry.price}</span>
-										</td>
-										<td>
 											<a href="javascript:;" class="delete" onclick="fn1('${entry.cid}')">删除</a>
+										</td>
+										<td style="display: none">
+											<span>${entry.cid}</span>
 										</td>
 									</tr>
 								</c:forEach>
@@ -100,19 +107,21 @@
 				</div>
 				
 			</c:if>
+			<div>
+				<c:if test="${not empty carts}">
+					<input style="margin-left: 100px" type="checkbox"   id="all">全选
+				</c:if>
 
+			</div>
 			<div style="margin-right:130px;">
 				<div style="text-align:right;">
-					<em style="color:#ff6600;">
-				登录后确认是否享有优惠&nbsp;&nbsp;
-			</em> 赠送积分: <em style="color:#ff6600;">596</em>&nbsp; 商品金额(单位：￥): <input type="text" id="in" readonly>
+
+			&nbsp; 商品金额(单位：￥): <input type="text" id="in" readonly>
 				</div>
 				<div style="text-align:right;margin-top:10px;margin-bottom:10px;">
 					<a href="${pageContext.request.contextPath }/car/clearcar.action? id="clear" class="clear">清空购物车</a>
-					<a href="${pageContext.request.contextPath }/order/addOrder.action">
-						<input type="submit" width="100" value="提交订单" name="submit" border="0" style="background: url('${pageContext.request.contextPath}/images/register.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-						height:35px;width:100px;color:white;">
-					</a>
+
+                    <button id="submi" onclick="Getcid()">提交订单</button>
 				</div>
 			</div>
 
@@ -121,16 +130,139 @@
 		
 	</body>
 	<script>
-		$(function () {
-			var totalRow = 0
-			$('#my tr').each(function() {
-				$(this).find('td:eq(4)').each(function(){
-					totalRow += parseFloat($(this).text());
-				});
+        function my() {
+            window.location.href="${pageContext.request.contextPath }/order/addOrder.action?totalRow="+totalRow;
+
+        }
+
+		function up(obj) {
+			var $td = $(obj).parents('tr').children('td');
+			var name= $td.eq(2).find("a").text();
+			var count= $td.eq(4).find("input").val();
+			console.log(name)
+			$.ajax({
+				type: "post",
+				url: "${pageContext.request.contextPath }/car/updatecount.action",
+				data: {"name":name,
+						"count":count},
+				success: function(msg){
+					if(msg=="yes"){
+						console.log(1);
+						// history.go(0);
+
+					}else {
+						console.log(0)
+
+					}
+				}
+			});
+
+
+		}
+
+		window.onload=function (ev) {
+        	Xiaoji();
+			var all=document.getElementById("all");
+			var inputs=document.getElementsByClassName("select");
+			all.addEventListener('change',function () {
+				for(i=0;i<inputs.length;i++){
+					if(all.checked){
+						inputs[i].checked=all.checked;
+						getMoney();
+					}else {
+						inputs[i].checked=false;
+						$("#in").val(0)
+
+					}
+				}
+			})
+		for(var i=0;i<inputs.length;i++){
+			inputs[i].addEventListener('change',function () {
+				qx();
+			});
+
+		}
+		var qx=function () {
+			var  count=0;
+			for(var j=0;j<inputs.length;j++){
+				if(inputs[j].checked){
+					count++;
+				}if(count==inputs.length){
+					all.checked=true;
+				}else {
+					all.checked=false;
+				}
+			}
+
+		}
+
+		}
+		// var totalRow = 0;
+		// function sum1() {
+		// 	$(":checkbox:checked").parents("tr").find('td:eq(5)').each(function(){
+		// 		totalRow += parseFloat($(this).text());
+		// 		console.log(totalRow);
+		// 	});
+		// 	$("#in").val(totalRow)
+		// 	console.log(totalRow)
+		//
+		//
+		// 	// var checks=document.getElementsByClassName('select').checked
+		// 	var options=document.getElementsByName("option");
+		// 	// for(var i=0;i<options.length;i++){
+		// 	// 	if(options[i].checked){
+		// 	// 		$('#my tr').each(function() {
+		// 	//
+		// 	// 			$(this).find('td:eq(4)').each(function(){
+		// 	// 				totalRow += parseFloat($(this).text());
+		// 	// 			});
+		// 	// 		});
+		// 	// 		$("#in").val(totalRow)
+		// 	// 		console.log(totalRow)
+		// 	// 	}
+		// 	// }
+		// }
+		function getMoney() {
+			var totalRow=0;
+
+			$(":checkbox:checked").parents("tr").find('td:eq(5)').each(function(){
+				totalRow += parseFloat($(this).text());
+				console.log(totalRow);
 			});
 			$("#in").val(totalRow)
-			console.log(totalRow)
-			// $('#totalRow').append('<td>合计</td><td></td><td>'+totalRow+'</td><td></td>');
-		})
+
+
+		}
+		function Xiaoji() {
+			var tb=document.getElementById("my")
+			var rows=tb.rows;
+			for(var i=1;i<rows.length;i++){
+				rows[i].cells[5].innerHTML= parseFloat(rows[i].cells[3].innerHTML)*parseFloat(rows[i].cells[4].getElementsByTagName("INPUT")[0].value)
+				getMoney();
+			}
+		}
+		function Getcid() {
+			var arr=new Array();
+			$(":checkbox:checked").parents("tr").find('td:eq(7)').each(function(){
+
+				arr.push($(this).find("span").text());
+			})
+			var t=$("#in").val();
+			console.log(arr);
+			var inputs=document.getElementsByClassName("select");
+			var  count=0;
+			for(var j=0;j<inputs.length;j++){
+				if(inputs[j].checked){
+					count++;
+				}}
+			if(count==0){
+				$("#submi").attr("disabled",false);
+				alert("已选商品为空，请至少选择一件商品")
+
+			}else {			window.location.href="${pageContext.request.contextPath }/order/addOrder.action?"+"totalRow="+t+"&arr="+arr;
+			}
+
+		}
+
 	</script>
 </html>

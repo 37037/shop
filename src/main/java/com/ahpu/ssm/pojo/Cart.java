@@ -8,16 +8,15 @@ public class Cart {
     private String uid;
     private String cid;
     private double price;
+    private String productname;
 
-    public Cart(String product, Integer count, String uid, String cid, double price) {
+    public Cart(String product, Integer count, String uid, String cid, double price, String productname) {
         this.product = product;
         this.count = count;
         this.uid = uid;
         this.cid = cid;
         this.price = price;
-    }
-
-    public Cart() {
+        this.productname = productname;
     }
 
     public String getProduct() {
@@ -58,5 +57,16 @@ public class Cart {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname;
+    }
+
+    public Cart() {
     }
 }

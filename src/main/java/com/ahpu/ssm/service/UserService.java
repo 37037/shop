@@ -1,15 +1,13 @@
 package com.ahpu.ssm.service;
 
-import com.ahpu.ssm.pojo.Cart;
-import com.ahpu.ssm.pojo.Product;
-import com.ahpu.ssm.pojo.User;
+import com.ahpu.ssm.pojo.*;
 
 import java.util.List;
 
 public interface UserService {
 
 	void addUser(User user);
-
+	boolean adminLogin(admin admin);
 	boolean findUserByUsernameAndPassword(User user);
 	boolean updatepwd(User user);
 	void insetcart(Cart cart);
@@ -18,5 +16,12 @@ public interface UserService {
 	void updateCart(Cart cart);
 	void deleteproduct(String cid);
 	void deletecar(User user);
+	void addnotice(notice notice);
+	notice find();
+	boolean haveusername(String username);
+	void deletebycid(String cid);
+	void add(Address a);
+	List<Address> getlist(User user);
+	void deleteaid(String aid);
 
 }

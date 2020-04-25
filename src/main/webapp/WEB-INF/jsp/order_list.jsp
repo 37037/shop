@@ -33,22 +33,43 @@
 		<div class="container">
 			<div class="row">
 
-				<div style="margin:0 auto; margin-top:10px;width:950px;">
+				<div style="margin:0 auto; margin-top:10px;">
 					<strong>我的订单</strong>
-					<table class="table table-bordered">
+					<table class="table table-bordered"><tr>
+						<th colspan="2">订单编号</th>
+						<th colspan="2">订单地址</th>
+						<th colspan="2">收件人</th>
+						<th colspan="2">电话号码</th>
+						<th colspan="2">订单状态</th>
+						<th colspan="2">订单时间</th>
+
+					</tr>
 						<c:forEach items="${page.list }" var="order">
 							<tbody>
-								<tr class="success">
-									<th colspan="2">订单编号:${order.oid } </th>
-									<th colspan="1">
+
+								<tr >
+									<th colspan="2">${order.oid } </th>
+									<th colspan="2">${order.address} </th>
+									<th colspan="2">${order.name } </th>
+									<th colspan="2">${order.telephone } </th>
+									<th colspan="2">
 										<!-- 判断，如果这个订单的state为0显示去付款 -->
-										<c:choose>
-											<c:when test="${order.state == 0 }">
+
+											<c:if test="${order.state == 0 }">
 												<a href="${pageContext.request.contextPath }/order/payorder.action?oid=${order.oid}">去付款</a>
-											</c:when>
-										</c:choose>
+											</c:if>
+											<c:if test="${order.state == 1}">
+												已付款（总金额${order.total}）等待发货
+											</c:if>
+										<c:if test="${order.state == 2}">
+											已付款（总金额${order.total}）<a onclick="cl(this)">确认收货</a>
+										</c:if>
+											<c:if test="${order.state == 3}">
+												已完成
+											</c:if>
+
 									</th>
-									<th colspan="2">订单时间:${order.ordertime } 
+									<th colspan="2">${order.ordertime }
 									<a href="${pageContext.request.contextPath }/order/listDetail.action?oid=${order.oid}&curPage=1">订单详情</a>
 									</th>
 									
@@ -115,5 +136,22 @@
 
 		
 	</body>
+	<script>
+		function cl(obj) {
+			var $th = $(obj).parents('tr').children('th');
+			var oid=$th.eq(0).text();
+			console.log(oid);
+
+			$.ajax({
+				type:"post",
+				url:"${pageContext.request.contextPath }/order/utilOrder1.action?",
+				data:{"oid":oid},
+				success:function (msg) {
+					alert("操作成功")
+					history.go(0);
+				}
+			})
+		}
+	</script>
 
 </html>

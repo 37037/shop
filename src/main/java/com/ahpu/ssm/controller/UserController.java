@@ -1,8 +1,9 @@
 package com.ahpu.ssm.controller;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.ahpu.ssm.pojo.Address;
+import com.ahpu.ssm.pojo.notice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ahpu.ssm.pojo.User;
 import com.ahpu.ssm.service.UserService;
 import com.ahpu.ssm.util.UUIDUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -71,6 +75,7 @@ public class UserController {
 	public ModelAndView  doRegist(User user) {
 		// 给新用户设定uid
 		user.setUid(UUIDUtil.getUUId());
+		System.out.println(user);
 		ModelAndView mav = new ModelAndView();
 		// 后台数据验证
 		// 通过service 添加具体的内容
@@ -90,6 +95,18 @@ public class UserController {
 		return mav;
 		}
 	}
+	@RequestMapping("/have")
+	@ResponseBody
+	public String have(String username){
+				if(		service.haveusername(username)){
+					String msg="yes";
+					return msg;
+				}else {
+					String msg="no";
+					return msg;
+				}
+	}
+
 	
 	@RequestMapping("logout")
 	public String doLogout(HttpSession session) {
@@ -102,6 +119,57 @@ public class UserController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("editmessage");
 		return mav;
+	}
+	@RequestMapping("/adress")
+	public ModelAndView adress(HttpSession session){
+		ModelAndView mav = new ModelAndView();
+		User loginUser = (User) session.getAttribute("user");
+		List<Address> list=new ArrayList<>();
+		list=service.getlist(loginUser);
+		mav.setViewName("adress");
+		mav.addObject("list",list);
+
+		return mav;
+	}
+	@RequestMapping("/deleteaid")
+    public ModelAndView delete(String aid ,HttpSession session){
+        System.out.println(1);
+        System.out.println(aid);
+	    service.deleteaid(aid);
+	    ModelAndView mav=new ModelAndView();
+        User loginUser = (User) session.getAttribute("user");
+        List<Address> list=new ArrayList<>();
+        list=service.getlist(loginUser);
+        mav.setViewName("adress");
+        mav.addObject("list",list);
+        return mav;
+    }
+
+
+
+
+    @RequestMapping("add")
+    @ResponseBody
+	public String add(String person,String phone,String address,HttpSession session) {
+
+		User loginUser = (User) session.getAttribute("user");
+		Address a=new Address();
+		a.setAid(UUIDUtil.getUUId());
+		a.setPerson(person);
+		a.setUsername(loginUser.getUsername());
+		a.setPhone(phone);
+		a.setAddress(address);
+
+		System.out.println(a.getAddress());
+		System.out.println(a.getPerson());
+		System.out.println(a.getUsername());
+
+		service.add(a);
+
+
+			String msg = "yes";
+			return msg;
+
 	}
 	@RequestMapping("pass")
 	@ResponseBody
@@ -144,6 +212,11 @@ public class UserController {
 		}
 		mav.setViewName("cart");
 		return mav;
+	}
+	@RequestMapping("/getnotice")
+	@ResponseBody
+	public notice find(){
+		return service.find();
 	}
 
 	

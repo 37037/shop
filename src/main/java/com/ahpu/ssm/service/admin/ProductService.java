@@ -2,8 +2,10 @@ package com.ahpu.ssm.service.admin;
 
 import java.util.List;
 
+import com.ahpu.ssm.pojo.Cart;
 import com.ahpu.ssm.pojo.PageBean;
 import com.ahpu.ssm.pojo.Product;
+import com.ahpu.ssm.pojo.User;
 
 public interface ProductService {
 
@@ -14,6 +16,8 @@ public interface ProductService {
 	List<Product> findHotProduct();
 
 	Product findProductByPid(String pid);
+	Product findProductByPimage(String pimage);
+
 
 	PageBean listProductByCategory(String cid, int curPage);
 
@@ -26,6 +30,7 @@ public interface ProductService {
 	List<Product> findlatestProduct();
 	
 	PageBean listsearchProduct(String seastr , int curPage);
+	void updateCount(Cart c);
 
 
 

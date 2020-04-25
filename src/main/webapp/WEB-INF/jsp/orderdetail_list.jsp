@@ -40,21 +40,29 @@
 								<tr class="warning">
 									<th>图片</th>
 									<th>商品</th>
-									<th>价格</th>
-								
+									<th>数量</th>
+									<th>单价</th>
+									<th>小计</th>
+
+
+
 								</tr>
 								
 								<c:forEach items="${page.list }" var="orderitem">
 									<tr class="active">
-										<td width="60" width="40%">
+										<td  width="20%">
 											<input type="hidden" name="id" value="22">
 											<img src="${pageContext.request.contextPath}/pic/${orderitem.product.pimage}" width="70" height="60">
 										</td>
-										<td width="30%">
+										<td width="20%">
 											<a target="_blank">${orderitem.product.pname }</a>
 										</td>
+										<td width="20">${orderitem.count}</td>
 										<td width="20%">
 											￥${orderitem.product.shop_price }
+										</td>
+										<td width="20%">
+											￥${orderitem.subtotal }
 										</td>
 									</tr>
 								</c:forEach>
@@ -90,4 +98,7 @@
 		</div>
 
 </body>
+	<script>
+
+	</script>
 </html>

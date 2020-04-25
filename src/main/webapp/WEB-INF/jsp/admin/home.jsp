@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <html>
 	<head>
@@ -10,6 +11,9 @@
 		}
     </style>
   </head>
+	<c:if test="${ empty admin }">
+		<jsp:forward page="/admin/adminLogin.action"></jsp:forward>
+	</c:if>
 	<frameset rows="103,*,43" frameborder=0 border="0" framespacing="0">
 	  <frame src="top.action" name="topFrame" scrolling="NO" noresize>
 	  <frameset cols="159,*" frameborder="0" border="0" framespacing="0">
