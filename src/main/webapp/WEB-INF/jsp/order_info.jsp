@@ -84,15 +84,7 @@
 					<div class="form-group">
 						<input type="hidden" name="methodStr" value="pay">
 						<input type="hidden" name="oid" value="${order.oid }">
-
-
-
-
-
-<%--						<label for="username" class="col-sm-1 control-label">地址</label>--%>
 						<div class="col-sm-5">
-<%--							<input type="text" class="form-control" name="address" id="username" placeholder="请输入收货地址">--%>
-
 								收 &nbsp  &nbsp  货  &nbsp  人：<select id="inputPassword3" name="name">
 								<c:forEach items="${list}" var="entry" >
 									<option value="${entry.person}" id="username">${entry.person}</option>
@@ -101,9 +93,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-<%--						<label for="inputPassword3" class="col-sm-1 control-label">收货人</label>--%>
 						<div class="col-sm-5">
-<%--							<input type="text" class="form-control" name="name" id="inputPassword3" placeholder="请输收货人">--%>
 								收 货 地 址 ：<select id="username" name="address">
 								<c:forEach items="${list}" var="entry" >
 									<option value="${entry.address}">${entry.address}</option>
@@ -112,10 +102,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-<%--						<label for="confirmpwd" class="col-sm-1 control-label">电话</label>--%>
 						<div class="col-sm-5">
-<%--							<input type="text" class="form-control" id="confirmpwd" name="telephone" placeholder="请输入联系方式" maxlength=11  Onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');"  >--%>
-
 								收货人电话：<select id="confirmpwd" name="telephone">
 								<c:forEach items="${list}" var="entry" >
 									<option value="${entry.phone}">${entry.phone}</option>

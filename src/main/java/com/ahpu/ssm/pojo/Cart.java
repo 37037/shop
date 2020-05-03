@@ -3,32 +3,25 @@ package com.ahpu.ssm.pojo;
 
 
 public class Cart {
-    private String product;
+
     private Integer count;
     private String uid;
     private String cid;
-    private double price;
-    private String productname;
+    private Product product;
+    private String pid;
 
-    public Cart(String product, Integer count, String uid, String cid, double price, String productname) {
-        this.product = product;
-        this.count = count;
-        this.uid = uid;
-        this.cid = cid;
-        this.price = price;
-        this.productname = productname;
-    }
-
-    public String getProduct() {
-        return product;
-    }
-
-    public void setProduct(String product) {
-        this.product = product;
+    public Cart() {
     }
 
     public Integer getCount() {
         return count;
+    }
+
+    public Cart(String uid, String cid, Product product, String pid) {
+        this.uid = uid;
+        this.cid = cid;
+        this.product = product;
+        this.pid = pid;
     }
 
     public void setCount(Integer count) {
@@ -51,22 +44,19 @@ public class Cart {
         this.cid = cid;
     }
 
-    public double getPrice() {
-        return price;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
-    public String getProductname() {
-        return productname;
+    public String getPid() {
+        return pid;
     }
 
-    public void setProductname(String productname) {
-        this.productname = productname;
-    }
-
-    public Cart() {
+    public void setPid(String pid) {
+        this.pid = pid;
     }
 }

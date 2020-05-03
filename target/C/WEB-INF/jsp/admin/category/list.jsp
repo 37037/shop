@@ -28,6 +28,7 @@
 						</TD>
 					</tr>
 					<tr>
+
 						<td class="ta_01" align="right">
 							<button type="button" id="add" name="add" value="添加" class="button_add" onclick="addCategory()">
 &#28155;&#21152;
@@ -42,7 +43,6 @@
 								style="BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BORDER-LEFT: gray 1px solid; WIDTH: 100%; WORD-BREAK: break-all; BORDER-BOTTOM: gray 1px solid; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #f5fafe; WORD-WRAP: break-word">
 								<tr
 									style="FONT-WEIGHT: bold; FONT-SIZE: 12pt; HEIGHT: 25px; BACKGROUND-COLOR: grey">
-
 									<td align="center" width="18%">
 										序号
 									</td>
@@ -70,15 +70,13 @@
 											</td>
 											<td align="center" style="HEIGHT: 22px">
 												<a href="${ pageContext.request.contextPath }/admin/editCategory.action?cid=${c.cid}">
-<%--													<img src="${pageContext.request.contextPath}/images/i_edit.gif" border="0" style="CURSOR: hand">--%>
-	<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+												<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 												</a>
 											</td>
 									
 											<td align="center" style="HEIGHT: 22px">
 												<a href="${ pageContext.request.contextPath }/admin/deleteCategory.action?cid=${c.cid}">
-<%--													<img src="${pageContext.request.contextPath}/images/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">--%>
-	<i class="fa fa-trash" aria-hidden="true"></i>
+												<i class="fa fa-trash" aria-hidden="true"></i>
 												</a>
 											</td>
 										</tr>

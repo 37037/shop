@@ -73,6 +73,12 @@
 										订单金额
 									</td>
 									<td align="center" width="10%">
+									订单地址
+									</td>
+									<td align="center" width="10%">
+										收货人电话
+									</td>
+									<td align="center" width="10%">
 										收货人
 									</td>
 									<td align="center" width="10%">
@@ -88,23 +94,31 @@
 								<c:forEach items="${page.list }" var="o" varStatus="vs">
 										<tr>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
-												width="18%">
+												width="5%">
 												${vs.count }
 											</td>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
-												width="17%">
+												width="10%">
 												${o.oid }
 											</td>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
-												width="17%">
+												width="10%">
 													${o.total }
 											</td>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
-												width="17%">
+												width="10%">
+													${o.address }
+											</td>
+											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
+												width="10%">
+													${o.telephone }
+											</td>
+											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
+												width="10%">
 												${o.name }
 											</td>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
-												width="17%">
+												width="10%">
 												<c:if test="${o.state == 0}">
 													未付款
 												</c:if>
@@ -123,7 +137,7 @@
 												<input class="info" type="button" value="订单详情" oid='${o.oid }'/>
 											</td>
 											<td align="center" style="HEIGHT: 22px">
-												<a href = "${pageContext.request.contextPath }/admin/utilOrder.action?oid=${o.oid}">删除</a>
+												<a href = "${pageContext.request.contextPath }/admin/deleteOrder.action?oid=${o.oid}">删除</a>
 											</td>
 										</tr>
 									</c:forEach>

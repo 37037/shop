@@ -89,7 +89,7 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 	@Override
-	public void deleteOrder(Order o) {
+	public void deleteOrder(String o) {
 		// TODO Auto-generated method stub
 		mapper.deleteOrder(o);
 	}

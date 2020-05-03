@@ -29,12 +29,13 @@ public class CarController {
 	public String updateCount(String name,Integer count,HttpSession session){
 		User user=(User)session.getAttribute("user");
 		Cart c=new Cart();
-		c.setProductname(name);
+//		c.setProductname(name);
+		c.setPid(name);
 		c.setUid(user.getUsername());
 		c.setCount(count);
 		System.out.println(c.getCount());
-		System.out.println(c.getUid());
-		System.out.println(c.getProductname());
+		System.out.println(name);
+//		System.out.println(c.getProductname());
 		service.updateCount(c);
 			String msg="yes";
 			return msg;
@@ -68,17 +69,12 @@ public class CarController {
 		//通过pid找到商品内容
 		Product p = service.findProductByPid(pid);
 		//将count加入到购物车中
-//		CarItem item = new CarItem();
-//		item.setProduct(p);
-//		item.setCount(count);
 		Cart cart=new Cart();
 		cart.setCid(UUIDUtil.getUUId());
-		cart.setProductname(p.getPname());
 		cart.setCount(count);
-		cart.setProduct(p.getPimage());
 		cart.setUid(user.getUsername());
-		cart.setPrice(p.getShop_price());
-		//将购物车项加入到购物车
+		cart.setPid(pid);
+		cart.setProduct(p);
 		if(service1.isIncart(cart)){
 			service1.updateCart(cart);
 		}else {service1.insetcart(cart);
@@ -91,6 +87,7 @@ public class CarController {
 //		car.add2Car(item);
 //		session.setAttribute("car", car);
 		List<Cart> carts=service1.findCart(user);
+		System.out.println(carts);
 
 		mav.addObject("carts",carts);
 		mav.setViewName("cart");
@@ -102,6 +99,7 @@ public class CarController {
 		List<Cart> carts=service1.findCart(user);
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("carts",carts);
+		System.out.println(carts);
 		mav.setViewName("cart");
 		return mav;
 	}

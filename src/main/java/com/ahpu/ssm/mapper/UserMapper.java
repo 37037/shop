@@ -3,6 +3,7 @@ package com.ahpu.ssm.mapper;
 import com.ahpu.ssm.pojo.*;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserMapper {
 
@@ -24,6 +25,13 @@ public interface UserMapper {
 	void add(Address a);
 	List<Address> getlist(User user);
 	void deleteaid(String aid);
+	List<User> finduserByPage(Map<String, Object> map);
+	int selectuserCount();
+	void deleteuser(String uid);
+	User finduser(String uid);
+	void updateuser( User user);
+	List<notice> findnotice();
+	void deletenotice(String nid);
 
 
 

@@ -83,8 +83,10 @@ public class AdminOrderController {
 	}
 	@RequestMapping("/deleteOrder")
 	public ModelAndView deleteProduct(Order o) {
+
 		ModelAndView mav = new ModelAndView();
-		service.deleteOrder(o);
+		service.deleteOrder(o.getOid());
+		System.out.println(o);
 		mav.addObject("msg", "删除成功");
 		mav.setViewName("admin/welcome");
 		return mav;

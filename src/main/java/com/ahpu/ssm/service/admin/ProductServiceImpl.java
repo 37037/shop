@@ -117,6 +117,11 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
+	public void updateProduct1(Product p) {
+		mapper.updateProduct1(p);
+	}
+
+	@Override
 	public Product queryProductByPid(String pid) {
 		// TODO Auto-generated method stub
 		return mapper.queryProductByPid(pid);

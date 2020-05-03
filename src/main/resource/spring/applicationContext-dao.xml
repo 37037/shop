@@ -14,7 +14,7 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<!-- 匹配属性 -->
 		<property name="driverClassName"  value = "com.mysql.jdbc.Driver"></property>
-		<property name="url"  value = "jdbc:mysql://localhost:3306/store?characterEncoding=utf-8"></property>
+		<property name="url"  value = "jdbc:mysql://localhost:3306/store3?characterEncoding=utf-8"></property>
 		<property name="username" value= "root"></property>
 		<property name="password" value= "root"></property>
 		

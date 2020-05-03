@@ -22,6 +22,8 @@ public interface ProductService {
 	PageBean listProductByCategory(String cid, int curPage);
 
 	void updateProduct(Product p);
+	void updateProduct1(Product p);
+
 
 	Product queryProductByPid(String pid);
 

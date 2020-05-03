@@ -67,6 +67,7 @@
     <p><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=2" target="mainFrame">已发货订单</a></p>
     <p><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=3" target="mainFrame">已完成订单</a></p>
     <p><a href="${pageContext.request.contextPath}/admin/notice.action" target="mainFrame">公告管理</a></p>
+    <p><a href="${pageContext.request.contextPath}/admin/getuser.action?curPage=1" target="mainFrame">用户管理</a></p>
 
 </div>
 

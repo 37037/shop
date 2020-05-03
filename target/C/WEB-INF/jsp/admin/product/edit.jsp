@@ -21,7 +21,7 @@
 	
 	<body>
 		<!--  -->
-		<form id="userAction_save_do" name="Form1" action="${pageContext.request.contextPath}/admin/updateProduct.action" method="post" ><!-- enctype="multipart/form-data" -->
+		<form id="userAction_save_do" name="Form1" action="${pageContext.request.contextPath}/admin/updateProduct.action" method="post" enctype="multipart/form-data" ><!-- enctype="multipart/form-data" -->
 			<input type="hidden" name="pid" value="${product.pid}">
 			
 			
@@ -37,33 +37,30 @@
 
 				<tr>
 					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
-						商品名称：
+						商品名称（必填）：
 					</td>
 					<td class="ta_01" bgColor="#ffffff">
-						<input type="text" name="pname" value="${product.pname}" id="userAction_save_do_logonName" class="bg"/>
+						<input type="text" name="pname" value="${product.pname}" id="pname" class="bg"/>
 					</td>
 					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
-						是否热门：
+						数量（必填）：
 					</td>
 					<td class="ta_01" bgColor="#ffffff">
-						<select name="is_hot">
-							<option value="1">是</option>
-							<option value="0">否</option>
-						</select>
+                        <input type="number" name="pcount" id="pcount" value="${product.pcount}">
 					</td>
 				</tr>
 				<tr>
 					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
-						市场价格：
+						市场价格（必填）：
 					</td>
 					<td class="ta_01" bgColor="#ffffff">
-						<input type="text" name="market_price" value="${product.market_price}" id="userAction_save_do_logonName" class="bg"/>
+						<input type="number" name="market_price" value="${product.market_price}" id="pmarket" class="bg"/>
 					</td>
 					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
-						商城价格：
+						商城价格（必填）：
 					</td>
 					<td class="ta_01" bgColor="#ffffff">
-						<input type="text" name="shop_price" value="${product.shop_price}" id="userAction_save_do_logonName" class="bg"/>
+						<input type="number" name="shop_price" value="${product.shop_price}" id="pshop" class="bg"/>
 					</td>
 				</tr>
 				<tr>
@@ -75,19 +72,16 @@
 					</td>
 					
 					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
-						是否最新：
+						销量（必填）：
 					</td>
 					<td class="ta_01" bgColor="#ffffff">
-						<select name="is_latest">
-							<option value="1">是</option>
-							<option value="0">否</option>
-						</select>
+                        <input type="number" name="is_latest" id="platest" value="${product.is_latest}">
 					</td>
 					
 				</tr>
 				<tr>
 					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
-						所属分类：
+						所属分类（必填）：
 					</td>
 					<td class="ta_01" bgColor="#ffffff" colspan="3">
 						<select id="category" name="cid">
@@ -98,16 +92,16 @@
 				</tr>
 				<tr>
 					<td width="18%" align="center" bgColor="#f5fafe" class="ta_01">
-						商品描述：
+						商品描述（必填）：
 					</td>
 					<td class="ta_01" bgColor="#ffffff" colspan="3">
-						<textarea name="pdesc" rows="5" cols="30">${product.pdesc}</textarea>
+						<textarea name="pdesc" rows="5" cols="30" id="pdesc">${product.pdesc}</textarea>
 					</td>
 				</tr>
 				<tr>
 					<td class="ta_01" style="WIDTH: 100%" align="center"
 						bgColor="#f5fafe" colSpan="4">
-						<button type="submit" id="userAction_save_do_submit" value="确定" class="button_ok">
+						<button type="button" id="userAction_save_do_submit" value="确定" class="button_ok">
 							&#30830;&#23450;
 						</button>
 
@@ -122,4 +116,13 @@
 			</table>
 		</form>
 	</body>
+	<script>
+		$("#userAction_save_do_submit").click(function () {
+			if($("#pname").val()!=""&&$("#pmarket").val()!=""&&$("#pshop").val()!=""&&$("#platest").val()!=""&&$("#pdesc").val()!=""&&$("#pcount").val()!=""&&$("#pdesc").val().trim()!=""&&$("#pname").val().trim()!=""){
+				$("#userAction_save_do").submit();
+			}else {
+				alert("请确保必填项不为空")
+			}
+		})
+	</script>
 </HTML>

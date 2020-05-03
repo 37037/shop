@@ -3,6 +3,7 @@ package com.ahpu.ssm.controller.admin;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.ahpu.ssm.pojo.PageBean;
 import com.ahpu.ssm.pojo.admin;
 import com.ahpu.ssm.pojo.notice;
 import org.apache.ibatis.annotations.Param;
@@ -17,12 +18,51 @@ import com.ahpu.ssm.service.UserService;
 import com.ahpu.ssm.util.UUIDUtil;
 
 import java.sql.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
 	@Autowired
 	UserService service;
+	@RequestMapping("/getuser")
+	public ModelAndView getuser(int curPage){
+		ModelAndView mav=new ModelAndView();
+		PageBean page =service.listUser( curPage);
+
+		mav.addObject("page",page);
+		mav.setViewName("admin/usermanage/messageuser");
+		return  mav;
+	}
+	@RequestMapping("/deleteuser")
+	public ModelAndView  deleteuser(String uid){
+		ModelAndView mav=new ModelAndView();
+		service.deleteuser(uid);
+		mav.addObject("msg", "删除成功");
+		mav.setViewName("admin/welcome");
+		return mav;
+
+	}
+	@RequestMapping("/updateuser")
+    public ModelAndView  updateuser(String uid){
+        ModelAndView mav=new ModelAndView();
+        User user =service.finduser(uid);
+
+        mav.addObject("user", user);
+        mav.setViewName("admin/usermanage/edit");
+        return mav;
+
+    }
+    @RequestMapping("/updatemessage")
+    public ModelAndView  updatemessage(User user){
+        ModelAndView mav=new ModelAndView();
+        service.updatemessage(user);
+
+        mav.addObject("msg", "修改成功");
+        mav.setViewName("admin/welcome");
+        return mav;
+
+    }
 	@RequestMapping("/adminLogin")
 	public String login(){
 		return "admin/adminLogin";
@@ -75,8 +115,23 @@ public class AdminController {
 		return "admin/welcome";
 	}
 	@RequestMapping("/notice")
-    public  String notice(){
-	    return "admin/notice";
+    public  ModelAndView notice(){
+	   List<notice> list= service.findnotice();
+	    ModelAndView mav=new ModelAndView();
+	    mav.setViewName("/admin/notice");
+	    mav.addObject("list" ,list);
+
+
+
+	    return mav;
+    }
+    @RequestMapping("/deletenotice")
+    public  ModelAndView deletenotice(String nid){
+        service.deletenotice(nid);
+        ModelAndView mav=new ModelAndView();
+        mav.setViewName("/admin/welcome");
+        mav.addObject("msg" ,"删除成功");
+        return mav;
     }
     @RequestMapping("/updatenotice")
     @ResponseBody

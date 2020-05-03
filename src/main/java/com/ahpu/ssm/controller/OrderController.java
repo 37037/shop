@@ -45,6 +45,7 @@ public class OrderController {
 			service.findcid(a);
 
 			carts.add(service.findcid(a));
+
 		}
 
 		User loginUser = (User)session.getAttribute("user");
@@ -72,18 +73,24 @@ public class OrderController {
 //			order.getItems().add(orderItem);
 //			service.addOrderItem(orderItem);
 //		}
+		service.addOrder(order);
 		for(Cart c : carts){
 			OrderItem orderItem = new OrderItem();
 			orderItem.setItemid(UUIDUtil.getUUId());
+			Product p=service2.findProductByPid(c.getPid());
+			c.setProduct(p);
 			orderItem.setCount(c.getCount());
-			orderItem.setSubtotal(c.getPrice()*c.getCount());
-			Product p=service2.findProductByPimage(c.getProduct());
-			orderItem.setProduct(p);
+			System.out.println(p.getShop_price());
+			System.out.println(c.getCount());
+			orderItem.setSubtotal(p.getShop_price()*c.getCount());
+//			Product p=service2.findProductByPimage(c.getProduct());
+			orderItem.setProduct(c.getProduct());
 			orderItem.setOrder(order);
+
 			order.getItems().add(orderItem);
 			service.addOrderItem(orderItem);
 		}
-		service.addOrder(order);
+
 //		car.clear();
 		for(String a :arr){
 			service1.deletebycid(a);
@@ -96,9 +103,9 @@ public class OrderController {
 		mav.addObject("list",list);
 		mav.addObject("order" , order);
 		mav.setViewName("order_info");
-		
+
 		return mav;
-	
+
 	}
 	
 	@RequestMapping("/orderForm")

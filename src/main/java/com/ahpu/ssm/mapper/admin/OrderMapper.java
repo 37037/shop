@@ -10,7 +10,7 @@ import com.ahpu.ssm.pojo.Product;
 
 public interface OrderMapper {
 	void addOrder(Order o);
-	void deleteOrder(Order o);
+	void deleteOrder(String o);
 	void addOrderItem(OrderItem oi);
 	void updateOrder(Order o);
 	Order selectOrderByOid(String oid);

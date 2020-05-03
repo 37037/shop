@@ -29,9 +29,10 @@ public interface ProductMapper {
 	List<Product> listProductByCategory(Map<String, Object> map);
 	
 	Product queryProductByPid(String pid);
-	
+
 	void updateProduct(Product p);
-	
+	void updateProduct1(Product p);
+
 	void deleteProduct(Product p);
 
 	List<Product> findlatestProduct();

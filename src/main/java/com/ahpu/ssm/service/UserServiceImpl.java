@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 
 import com.ahpu.ssm.mapper.UserMapper;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -98,6 +100,17 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
+	public List<notice> findnotice() {
+		List<notice> list=mapper.findnotice();
+		return list;
+	}
+
+	@Override
+	public void deletenotice(String nid) {
+		mapper.deletenotice(nid);
+	}
+
+	@Override
 	public boolean haveusername(String username) {
 		int count;
 		count=mapper.haveusername(username);
@@ -129,6 +142,43 @@ public class UserServiceImpl implements UserService{
 	public void deleteaid(String aid) {
 		mapper.deleteaid(aid);
 	}
+
+	@Override
+	public PageBean listUser(int curPage) {
+		PageBean<User> page = new PageBean<User>();
+
+		page.setCurPage(curPage);
+		int totalCount = mapper.selectuserCount();
+		page.setTotalSize(totalCount);
+
+		double total = totalCount;
+		int totalPage = (int)Math.ceil(total/ PageBean.pageSize);
+		page.setTotalPage(totalPage);
+
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("start", (curPage - 1) * PageBean.pageSize);
+		map.put("size", PageBean.pageSize);
+
+		List<User> list = mapper.finduserByPage(map);
+
+		page.setList(list);
+		return page;
+	}
+
+	@Override
+	public void deleteuser(String uid) {
+		mapper.deleteuser(uid);
+	}
+
+	@Override
+	public User finduser(String uid) {
+		return mapper.finduser(uid);
+	}
+
+    @Override
+    public void updatemessage(User user) {
+        mapper.updateuser(user);
+    }
 
 
 }

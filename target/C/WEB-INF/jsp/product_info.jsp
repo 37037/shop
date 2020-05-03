@@ -48,22 +48,15 @@
 					<div class="col-md-6">
 						<div><strong>${p.pname }</strong></div>
 						<div style="border-bottom: 1px dotted #dddddd;width:350px;margin:10px 0 10px 0;">
-<%--							<div>编号：${p.pid }</div>--%>
 						</div>
-
 						<div style="margin:10px 0 10px 0;">促销价: <strong style="color:#ef0101;">￥：${p.shop_price }元/份</strong>
 						</div>
-
 						<div style="margin:10px 0 10px 0;">促销: <a target="_blank" title="限时抢购 (2014-07-30 ~ 2015-01-01)" style="background-color: #f07373;">限时抢购</a> </div>
 						<c:if test="${p.pcount < 10}"><span style="background: red">销售火爆，库存不足</span></c:if>
 						<c:if test="${p.pcount>10}">
 							<div style="margin:10px 0 10px 0;">库存: <a target="_blank" >${p.pcount}</a> </div>
 						</c:if>
-
-
-
 						<div style="padding:10px;border:1px solid #e7dbb1;width:330px;margin:15px 0 10px 0;;background-color: #fffee6;">
-<%--							<div style="margin:5px 0 10px 0;">白色</div>--%>
 							<form action="${pageContext.request.contextPath }/car/addCar1.action" method="post">
 								<input type="hidden" name="methodStr" value="add2Car">
 								<input type="hidden" name="pid" value="${p.pid }">
@@ -74,11 +67,6 @@
 								<c:if test="${p.pcount<10}">
 									暂时无货，非常抱歉
 								</c:if>
-
-<%--								<div style="margin:20px 0 10px 0;">--%>
-
-									 &nbsp;
-<%--								</div>--%>
 							</form>
 						</div>
 					</div>
@@ -119,31 +107,31 @@
 					${p.pdesc }
 					</div>
 
-					<div style="background-color:#d3d3d3;width:900px;">
-						<table class="table table-bordered">
-							<tbody>
-								<tr class="active">
-									<th><strong>商品评论</strong></th>
-								</tr>
-								<tr class="warning">
-									<th>暂无商品评论信息 <a>[发表商品评论]</a></th>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+<%--					<div style="background-color:#d3d3d3;width:900px;">--%>
+<%--						<table class="table table-bordered">--%>
+<%--							<tbody>--%>
+<%--								<tr class="active">--%>
+<%--									<th><strong>商品评论</strong></th>--%>
+<%--								</tr>--%>
+<%--								<tr class="warning">--%>
+<%--									<th>暂无商品评论信息 <a>[发表商品评论]</a></th>--%>
+<%--								</tr>--%>
+<%--							</tbody>--%>
+<%--						</table>--%>
+<%--					</div>--%>
 
-					<div style="background-color:#d3d3d3;width:900px;">
-						<table class="table table-bordered">
-							<tbody>
-								<tr class="active">
-									<th><strong>商品咨询</strong></th>
-								</tr>
-								<tr class="warning">
-									<th>暂无商品咨询信息 <a>[发表商品咨询]</a></th>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+<%--					<div style="background-color:#d3d3d3;width:900px;">--%>
+<%--						<table class="table table-bordered">--%>
+<%--							<tbody>--%>
+<%--								<tr class="active">--%>
+<%--									<th><strong>商品咨询</strong></th>--%>
+<%--								</tr>--%>
+<%--								<tr class="warning">--%>
+<%--									<th>暂无商品咨询信息 <a>[发表商品咨询]</a></th>--%>
+<%--								</tr>--%>
+<%--							</tbody>--%>
+<%--						</table>--%>
+<%--					</div>--%>
 				</div>
 
 			</div>

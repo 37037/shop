@@ -72,6 +72,7 @@
 									<th>小计(单位：￥)</th>
 									<th>操作</th>
 									<th style="display: none">购物号</th>
+									<th style="display: none;">商品pid</th>
 								</tr>
 								<c:forEach items="${carts}" var="entry">
 									<tr class="active">
@@ -79,13 +80,13 @@
 										</td>
 										<td  width="12%">
 
-											<img src="${pageContext.request.contextPath}//pic//${entry.product}" width="70" height="60">
+											<img src="${pageContext.request.contextPath}//pic//${entry.product.pimage}" width="70" height="60">
 										</td>
 										<td width="20%">
-											<a target="_blank">${entry.productname}</a>
+											<a target="_blank">${entry.product.pname}</a>
 										</td>
 										<td width="20%">
-											${entry.price }
+											${entry.product.shop_price }
 										</td>
 										<td width="20%">
 											<input onblur="up(this)" id="count" onchange="Xiaoji()"   patten="[1-9][0-9]?" oninput="if(value<1){value=1}else if(value>=10){value=10}"  type="number" name="quantity" value="${entry.count }" maxlength="4" size="10">
@@ -98,6 +99,9 @@
 										</td>
 										<td style="display: none">
 											<span>${entry.cid}</span>
+										</td>
+										<td style="display: none;">
+											<a>${entry.product.pid}</a>
 										</td>
 									</tr>
 								</c:forEach>
@@ -137,8 +141,9 @@
 
 		function up(obj) {
 			var $td = $(obj).parents('tr').children('td');
-			var name= $td.eq(2).find("a").text();
+			var name= $td.eq(8).find("a").text();
 			var count= $td.eq(4).find("input").val();
+			console.log(name+11);
 			console.log(name)
 			$.ajax({
 				type: "post",

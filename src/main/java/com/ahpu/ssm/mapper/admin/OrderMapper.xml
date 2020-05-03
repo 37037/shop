@@ -34,6 +34,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select orderitem.*,product.*
 		from orderitem,product
 		where orderitem.pid=product.pid and oid = #{oid}
+
+
 	</select>
 	<!-- 定义一个通用的查询字段 -->
 	<sql id = "Base_Column_List">
@@ -112,7 +114,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			select count(*) from orderitem where oid=#{oid};
 	</select>
 	
-	<update id="deleteOrder" parameterType="com.ahpu.ssm.pojo.Order">
+	<update id="deleteOrder" parameterType="String">
 		delete from orders where
 		oid = #{oid}
 	</update>

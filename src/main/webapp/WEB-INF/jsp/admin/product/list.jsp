@@ -19,7 +19,7 @@
 	</HEAD>
 	<body>
 		<br>
-		<form id="Form1" name="Form1" action="${pageContext.request.contextPath}/user/list.jsp" method="post">
+		<form id="Form1" name="Form1" action="${pageContext.request.contextPath}/admin/find.action?curPage=1" method="post">
 			<table cellSpacing="1" cellPadding="0" width="80%" align="center" bgColor="#808080" border="0">
 				<TBODY>
 					<tr>
@@ -28,12 +28,8 @@
 						</TD>
 					</tr>
 					<tr>
-						<td class="ta_01" align="right">
-							<button type="button" id="add" name="add" value="添加" class="button_add" onclick="addProduct()">
-&#28155;&#21152;
-</button>
+						<td align="right"><input type="text" id="pid" name="name" placeholder="请输入商品名称"><button>查找商品</button></td>
 
-						</td>
 					</tr>
 					<tr>
 						<td class="ta_01" align="center" bgColor="#f5fafe">
@@ -42,7 +38,6 @@
 								style="BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BORDER-LEFT: gray 1px solid; WIDTH: 100%; WORD-BREAK: break-all; BORDER-BOTTOM: gray 1px solid; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #f5fafe; WORD-WRAP: break-word">
 								<tr
 									style="FONT-WEIGHT: bold; FONT-SIZE: 12pt; HEIGHT: 25px; BACKGROUND-COLOR: gray">
-
 									<td align="center" width="18%">
 										序号
 									</td>
@@ -57,7 +52,7 @@
 										商品价格
 									</td>
 									<td align="center" width="17%">
-										是否热门
+										商品数量
 									</td>
 									<td width="7%" align="center">
 										编辑
@@ -87,8 +82,7 @@
 											</td>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="17%">
-												<c:if test="${p.is_hot==1 }">是</c:if>
-												<c:if test="${p.is_hot!=1 }">否</c:if>
+												${p.pcount}
 											</td>
 											<td align="center" style="HEIGHT: 22px">
 												<a href="${ pageContext.request.contextPath }/admin/editProduct.action?pid=${p.pid}">

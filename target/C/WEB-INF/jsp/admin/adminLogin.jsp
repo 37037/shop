@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <style>
         body{
-            background-image: url("../../../C/pic/123.jpg");
+
             background-repeat:no-repeat;
             background-size: 100% auto;
         }
@@ -63,7 +63,7 @@ background: #2F3F5B40;
         }
     </style>
 </head>
-<body>
+<body style="background:grey">
 
 <div id="one">
     <h1>adminLogin</h1>

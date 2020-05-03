@@ -43,46 +43,71 @@ public class AdminProductController {
 	
 	@RequestMapping("/addProducts")
 	public ModelAndView addProduct(Product p,String cid,MultipartFile pictrueFile) throws IllegalStateException, IOException {
-		
+
 		// 设置图片名称，不能重复，使用 uuid
 		String picName = UUIDUtil.getUUId();
-		
+
 		// 获取提交上来的文件名
 		String oriName = pictrueFile.getOriginalFilename();
-		
+		System.out.println(oriName);
+		System.out.println(23);
+
 		// 通过文件名获取后缀名
 		String extName = oriName.substring(oriName.lastIndexOf("."));
-		
+
 		// 上传图片
 		pictrueFile.transferTo(new File("C:\\Users\\Administrator\\Desktop\\C\\src\\main\\webapp\\pic\\" + picName + extName));
 		System.out.print(picName);
 		p.setPid(UUIDUtil.getUUId());
-		
+
 		p.setPimage(picName + extName);
-		
+
 		Category c = new Category();
-		
+
 		c.setCid(cid);
-		
+
 		p.setCategory(c);
-		
+
 		p.setPdate(new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss").format(new Date()));
-		
+
 		ModelAndView mav = new ModelAndView();
-		
+
 		service.addProduct(p);
-		
+
 		mav.addObject("msg","添加商品成功");
-		
+
 		mav.setViewName("admin/welcome");
-		
+
 		return mav;
 	}
 	
 	@RequestMapping("/updateProduct")
-	public ModelAndView updateProduct(Product p) {
+	public ModelAndView updateProduct(MultipartFile pictrueFile,Product p)throws IllegalStateException ,IOException{
+
+		if(pictrueFile.getSize()!= 0){
+			String picName = UUIDUtil.getUUId();
+
+			// 获取提交上来的文件名
+			String oriName = pictrueFile.getOriginalFilename();
+			System.out.println(11);
+			System.out.println(oriName);
+			System.out.println(45);
+
+			// 通过文件名获取后缀名
+			String extName = oriName.substring(oriName.lastIndexOf("."));
+
+			// 上传图片
+			pictrueFile.transferTo(new File("C:\\Users\\Administrator\\Desktop\\C\\src\\main\\webapp\\pic\\" + picName + extName));
+			p.setPimage(picName + extName);
+			service.updateProduct(p);
+		}else {
+			service.updateProduct1(p);
+		}
+
+
 		ModelAndView mav = new ModelAndView();
-		service.updateProduct(p);
+
+
 		mav.addObject("msg", "修改成功");
 		mav.setViewName("admin/welcome");
 		return mav;
@@ -96,13 +121,23 @@ public class AdminProductController {
 		mav.addObject("product",p);
 		return mav;
 	}
-	
+
 	@RequestMapping("/deleteProduct")
 	public ModelAndView deleteProduct(Product p) {
 		ModelAndView mav = new ModelAndView();
 		service.deleteProduct(p);
 		mav.addObject("msg", "删除成功");
 		mav.setViewName("admin/welcome");
+		return mav;
+	}
+
+	@RequestMapping("/find")
+	public ModelAndView find(String name,int curPage) {
+		ModelAndView mav = new ModelAndView();
+		PageBean page=service.listsearchProduct(name,curPage);
+		mav.addObject("page", page);
+		System.out.println(page);
+		mav.setViewName("admin/product/findp");
 		return mav;
 	}
 }

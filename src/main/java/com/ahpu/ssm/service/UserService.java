@@ -18,10 +18,16 @@ public interface UserService {
 	void deletecar(User user);
 	void addnotice(notice notice);
 	notice find();
+	List<notice> findnotice();
+	void deletenotice(String nid);
 	boolean haveusername(String username);
 	void deletebycid(String cid);
 	void add(Address a);
 	List<Address> getlist(User user);
 	void deleteaid(String aid);
+	PageBean listUser(int curPage);
+	void deleteuser(String uid);
+	User finduser(String uid);
+	void updatemessage(User user);
 
 }

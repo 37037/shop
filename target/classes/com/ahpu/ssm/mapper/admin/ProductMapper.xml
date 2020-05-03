@@ -8,8 +8,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- void addProduct(Product p); -->
 	<insert id="addProduct" parameterType="com.ahpu.ssm.pojo.Product">
 	
-		insert into product(pid,pname,pimage,pdate,pdesc,shop_price,market_price,is_hot,is_latest,pcount,cid)
-		values(#{pid},#{pname},#{pimage},#{pdate},#{pdesc},#{shop_price},#{market_price},#{is_hot},#{is_latest},#{pcount},#{category.cid})
+		insert into product(pid,pname,pimage,pdate,pdesc,shop_price,market_price,is_hot,pcount,cid)
+		values(#{pid},#{pname},#{pimage},#{pdate},#{pdesc},#{shop_price},#{market_price},#{is_hot},#{pcount},#{category.cid})
 		
 	</insert>
 	
@@ -21,9 +21,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- void updateProduct(Product p); -->
 	<update id="updateProduct" parameterType="com.ahpu.ssm.pojo.Product">
-		update product set pname = #{pname},cid=#{cid},shop_price=#{shop_price},market_price=#{market_price},is_hot=#{is_hot},is_latest=#{is_latest},pcount=#{pcount} where pid = #{pid}
+		update product set pname = #{pname},pimage=#{pimage},cid=#{cid},shop_price=#{shop_price},market_price=#{market_price},is_hot=#{is_hot},is_latest=#{is_latest},pcount=#{pcount},pdesc=#{pdesc} where pid = #{pid}
 	</update>
-	
+	<update id="updateProduct1" parameterType="com.ahpu.ssm.pojo.Product">
+		update product set pname = #{pname},cid=#{cid},shop_price=#{shop_price},market_price=#{market_price},is_hot=#{is_hot},is_latest=#{is_latest},pcount=#{pcount},pdesc=#{pdesc} where pid = #{pid}
+	</update>
 	<!-- void deleteProduct(Product p); -->
 	<update id="deleteProduct" parameterType="com.ahpu.ssm.pojo.Product">
 		delete from product where pid = #{pid}
@@ -98,7 +100,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			limit #{start},#{size}
 	</select>
 	<update id="updateCount">
-		update car set count = #{count} where uid=#{uid} and productname=#{productname}
+		update car set count = #{count} where uid=#{uid} and pid=#{pid}
 	</update>
 </mapper>
 

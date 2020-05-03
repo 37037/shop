@@ -22,17 +22,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update user set password=#{password} where username=#{username};
 	</update>
 	<insert id="insercart" parameterType="com.ahpu.ssm.pojo.Cart">
-		insert  into car(cid,uid,product,count,price,productname)
-		values(#{cid},#{uid},#{product},#{count},#{price},#{productname});
+		insert  into car(cid,uid,pid,count)
+		values(#{cid},#{uid},#{pid},#{count});
 	</insert>
-	<select id="findCart" parameterType="com.ahpu.ssm.pojo.User" resultType="com.ahpu.ssm.pojo.Cart">
-		select * from car where uid=#{username}
+	<select id="findCart" resultMap="ProdctResultMap" parameterType="com.ahpu.ssm.pojo.User" >
+		select car.*,product.*
+		from car,product
+		where car.pid=product.pid and uid=#{username}
 	</select>
+	<resultMap type="com.ahpu.ssm.pojo.Cart" id="ProdctResultMap">
+		<id column="cid" property="cid"></id>
+		<result column="count" property="count"></result>
+		<result column="uid" property="uid"></result>
+		<collection property="product" ofType="com.ahpu.ssm.pojo.Product">
+			<id column="pid" property="pid"></id>
+			<result column="pname" property="pname"></result>
+			<result column="pimage" property="pimage"></result>
+			<result column="shop_price" property="shop_price"></result>
+			<result column="pcount" property="pcount"></result>
+			<result column="pdate" property="pdate"></result>
+			<result column="is_hot" property="is_hot"></result>
+			<result column="pdesc" property="pdesc"></result>
+			<result column="is_latest" property="is_latest"></result>
+			<result column="market_price" property="market_price"></result>
+			<result column="cid" property="cid"></result>
+		</collection>
+	</resultMap>
+
 	<select id="isIncart" parameterType="com.ahpu.ssm.pojo.Cart" resultType="int" >
-		select count(*) from car where product=#{product} and uid=#{uid}
+		select count(*) from car where pid=#{pid} and uid=#{uid}
 	</select>
 	<update id="updateCart" parameterType="com.ahpu.ssm.pojo.Cart">
-		update car set count=count+#{count} where product=#{product} and uid=#{uid}
+		update car set count=count+#{count} where pid=#{pid} and uid=#{uid}
 	</update>
 	<delete id="deleteproduct" parameterType="java.lang.String">
 		delete from car where cid=#{cid}
@@ -64,6 +85,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <delete id="deleteaid" parameterType="String">
         delete from adress where aid=#{aid}
     </delete>
+	<select id="finduserByPage" parameterType="Map" resultType="com.ahpu.ssm.pojo.User">
+		select * from user
+		order by uid desc
+		limit #{start},#{size}
+	</select>
+	<select id="selectuserCount" resultType="int">
+			select count(*) from user;
+	</select>
+	<delete id="deleteuser" parameterType="String">
+		delete from user where uid=#{uid}
+	</delete>
+	<select id="finduser" parameterType="String" resultType="com.ahpu.ssm.pojo.User">
+		select * from user where uid=#{uid}
+	</select>
+    <update id="updateuser" parameterType="com.ahpu.ssm.pojo.User">
+        update user set password=#{password},name=#{name},telephone=#{telephone},email=#{email},sex=#{sex} where username=#{username}
+    </update>
+	<select id="findnotice" resultType="com.ahpu.ssm.pojo.notice">
+		select * from notice order by time limit 0,10
+	</select>
+	<delete id="deletenotice" parameterType="String">
+		delete from notice where nid=#{nid}
+	</delete>
 </mapper>
 
 
