@@ -120,7 +120,7 @@
 				</div>
 			</div>			
 		
-			
+			<div style="height: 50px;background: grey" align="center">联系客服：QQ1303051288</div>
 	</body>
 
 </html>

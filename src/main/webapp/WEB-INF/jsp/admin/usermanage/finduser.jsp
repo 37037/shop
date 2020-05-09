@@ -64,88 +64,60 @@
                             删除
                         </td>
                     </tr>
-                    <c:forEach items="${page.list }" var="o" varStatus="vs">
+<c:if test="${not empty u}">
                         <tr>
                             <td style="CURSOR: hand; HEIGHT: 22px" align="center"
                                 width="10%">
-                                    ${o.username }
+                                    ${u.username }
                             </td>
                             <td style="CURSOR: hand; HEIGHT: 22px" align="center"
                                 width="10%">
-                                    ${o.password}
+                                    ${u.password}
                             </td>
                             <td style="CURSOR: hand; HEIGHT: 22px" align="center"
                                 width="10%">
-                                    ${o.name }
+                                    ${u.name }
                             </td>
                             <td style="CURSOR: hand; HEIGHT: 22px" align="center"
                                 width="17%">
-                                    ${o.telephone}
+                                    ${u.telephone}
                             </td>
                             <td style="CURSOR: hand; HEIGHT: 22px" align="center"
                                 width="10%">
-<%--                                   <c:if test="${o.state == 0}">--%>
-        <%--                                    未付款--%>
-        <%--                                </c:if>--%>
-        <%--                                <c:if test="${o.state == 1 }">--%>
-        <%--                                    <a href = "${pageContext.request.contextPath }/admin/utilOrder.action?oid=${o.oid}" id="sub">去发货</a>--%>
-        <%--                                </c:if>--%>
-        <%--                                <c:if test="${o.state == 2 }">--%>
-        <%--                                    已发货--%>
-        <%--                                </c:if>--%>
-        <%--                                <c:if test="${o.state== 3 }">--%>
-        <%--                                    订单完成--%>
-        <%--                                </c:if>--%>
-                                ${o.email}
+
+                                    ${u.email}
 
                             </td>
                             <td align="center" style="HEIGHT: 22px">
-                                ${o.sex}
+                                    ${u.sex}
                             </td>
 
                             <td align="center" style="HEIGHT: 22px">
-                                <a href = "${pageContext.request.contextPath }/admin/updateuser.action?username=${o.username}">
+                                <a href = "${pageContext.request.contextPath }/admin/updateuser.action?username=${u.username}">
                                     <img src="${pageContext.request.contextPath}/images/i_edit.gif" border="0" style="CURSOR: hand">
 
                                 </a>
                             </td>
                             <td align="center" style="HEIGHT: 22px">
-                                <a href = "${pageContext.request.contextPath }/admin/deleteuser.action?uid=${o.uid}">
+                                <a href = "${pageContext.request.contextPath }/admin/deleteuser.action?uid=${u.uid}">
                                     <img src="${pageContext.request.contextPath}/images/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">
 
                                 </a>
                             </td>
                         </tr>
-                    </c:forEach>
                 </table>
             </td>
         </tr>
+    </c:if>
+<c:if test="${ empty u}">
+    <tr >
+        <td style="CURSOR: hand; HEIGHT: 22px" align="center"
+            width="10%" colspan="8">该用户不存在</td>
+    </tr>
+</c:if>
         </TBODY>
     </table>
-    <div style="text-align: center;">
-        <ul class="pagination">
-            <c:if test="${page.curPage != 1 }">
-                <li><a href="${pageContext.request.contextPath }/admin/getuser.action?curPage=${page.curPage - 1}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-            </c:if>
 
-            <c:forEach begin="1" end="${page.totalPage }" var="i">
-                <c:if test="${page.curPage == i }">
-                    <li class="active"><a>${i }</a></li>
-                </c:if>
-
-                <c:if test="${page.curPage != i }">
-                    <li><a href="${pageContext.request.contextPath }/admin/getuser.action?curPage=${i}">${i }</a></li>
-                </c:if>
-            </c:forEach>
-            <c:if test="${page.curPage != page.totalPage }">
-                <li>
-                    <a href="${pageContext.request.contextPath }/admin/getuser.action?curPage=${page.curPage + 1}" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </c:if>
-        </ul>
-    </div>
 
 </body>
 <script>

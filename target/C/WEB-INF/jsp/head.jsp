@@ -35,7 +35,7 @@
 				
 				<%--如果已登录，则显示欢迎语句，并且有购物车、订单、注销等按钮 --%>
 				<c:if test="${not empty user}">
-					<li>欢迎${user.name }登录</li>
+					<li>欢迎登录</li>
 					<li><a onclick="gg()">公告</a></li>
 					<li><a href="${pageContext.request.contextPath }/car/showCar.action">购物车</a></li>
 					<li><a href="${pageContext.request.contextPath }/order/orderlist.action?curPage=1">订单</a></li>

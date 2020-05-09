@@ -27,7 +27,7 @@ public interface UserService {
 	void deleteaid(String aid);
 	PageBean listUser(int curPage);
 	void deleteuser(String uid);
-	User finduser(String uid);
+	User finduser(String username);
 	void updatemessage(User user);
 
 }

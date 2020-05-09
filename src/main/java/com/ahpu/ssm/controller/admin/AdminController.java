@@ -34,6 +34,15 @@ public class AdminController {
 		mav.setViewName("admin/usermanage/messageuser");
 		return  mav;
 	}
+	@RequestMapping("/finduserbyname")
+	public ModelAndView finduserbyname(String uname){
+		ModelAndView mav=new ModelAndView();
+		User u=service.finduser(uname);
+
+		mav.addObject("u",u);
+		mav.setViewName("admin/usermanage/finduser");
+		return  mav;
+	}
 	@RequestMapping("/deleteuser")
 	public ModelAndView  deleteuser(String uid){
 		ModelAndView mav=new ModelAndView();
@@ -44,9 +53,9 @@ public class AdminController {
 
 	}
 	@RequestMapping("/updateuser")
-    public ModelAndView  updateuser(String uid){
+    public ModelAndView  updateuser(String username){
         ModelAndView mav=new ModelAndView();
-        User user =service.finduser(uid);
+        User user =service.finduser(username);
 
         mav.addObject("user", user);
         mav.setViewName("admin/usermanage/edit");

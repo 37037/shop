@@ -73,6 +73,9 @@
 										订单金额
 									</td>
 									<td align="center" width="10%">
+										下单时间
+									</td>
+									<td align="center" width="10%">
 										订单地址
 									</td>
 									<td align="center" width="10%">
@@ -104,6 +107,10 @@
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="10%">
 													${o.total }
+											</td>
+											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
+												width="10%">
+													${o.ordertime }
 											</td>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="10%">

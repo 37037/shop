@@ -18,7 +18,7 @@
 
 <body>
 <br>
-<form id="Form1" name="Form1"  method="post">
+<form id="Form1" name="Form1" action="${pageContext.request.contextPath}/admin/finduserbyname.action"  method="post">
     <table cellSpacing="1" cellPadding="0" width="80%" align="center" bgColor="#808080" border="0">
         <TBODY>
         <tr>
@@ -26,7 +26,10 @@
                 <strong>用户列表</strong>
             </TD>
         </tr>
-
+        <tr>
+            <td align="right">
+                <input type="text" name="uname" placeholder="请输入用户名"><button>搜索用户</button>
+            </td></tr>
         <tr>
             <td class="ta_01" align="center" bgColor="white">
                 <table cellspacing="0" cellpadding="1" rules="all"
@@ -53,9 +56,7 @@
                         <td align="center" width="10%" class="info">
                             性别
                         </td>
-                        <td align="center" width="10%" class="info">
-                            出生日期：
-                        </td>
+
                         <td align="center" width="5%">
                             修改
                         </td>
@@ -101,11 +102,9 @@
                             <td align="center" style="HEIGHT: 22px">
                                 ${o.sex}
                             </td>
+
                             <td align="center" style="HEIGHT: 22px">
-                                    ${o.birthday}
-                            </td>
-                            <td align="center" style="HEIGHT: 22px">
-                                <a href = "${pageContext.request.contextPath }/admin/updateuser.action?uid=${o.uid}">
+                                <a href = "${pageContext.request.contextPath }/admin/updateuser.action?username=${o.username}">
                                     <img src="${pageContext.request.contextPath}/images/i_edit.gif" border="0" style="CURSOR: hand">
 
                                 </a>
@@ -135,12 +134,12 @@
                 </c:if>
 
                 <c:if test="${page.curPage != i }">
-                    <li><a href="${pageContext.request.contextPath }/admin/getuser.action?curPage=${page.curPage - 1}">${i }</a></li>
+                    <li><a href="${pageContext.request.contextPath }/admin/getuser.action?curPage=${i}">${i }</a></li>
                 </c:if>
             </c:forEach>
             <c:if test="${page.curPage != page.totalPage }">
                 <li>
-                    <a href="${pageContext.request.contextPath }/admin/getuser.action?curPage=${page.curPage - 1}" aria-label="Next">
+                    <a href="${pageContext.request.contextPath }/admin/getuser.action?curPage=${page.curPage + 1}" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>

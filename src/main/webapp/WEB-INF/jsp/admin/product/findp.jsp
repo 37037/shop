@@ -94,6 +94,11 @@
                             </td>
                         </tr>
                     </c:forEach>
+                    <c:if test="${empty page.list}">
+                        <tr>
+                            <td align="center" colspan="7">找不到该商品</td>
+                        </tr>
+                    </c:if>
                 </table>
             </td>
         </tr>

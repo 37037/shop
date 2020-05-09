@@ -28,7 +28,7 @@ public interface UserMapper {
 	List<User> finduserByPage(Map<String, Object> map);
 	int selectuserCount();
 	void deleteuser(String uid);
-	User finduser(String uid);
+	User finduser(String username);
 	void updateuser( User user);
 	List<notice> findnotice();
 	void deletenotice(String nid);

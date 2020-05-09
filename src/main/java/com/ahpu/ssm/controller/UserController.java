@@ -40,18 +40,8 @@ public class UserController {
 	
 	
 	@RequestMapping("/doLogin")//登陆验证
-	public ModelAndView doLogin(User user,HttpSession session) { /* username   password  */
-		
-		// 数据验证 (略)
-	/*	String code=(String) session.getAttribute("code");
-		String code2=(String) session.getAttribute("vcode");
-		System.out.print(code);
-		System.out.print(code2);
-		if(code == code2) {
-			System.out.print("验证码正确！");
-			ModelAndView mav = new ModelAndView();
-			mav.addObject("msg", "验证码不正确，请重新登录");
-		}*/
+	public ModelAndView doLogin(User user,HttpSession session) {
+
 		boolean isSuccess = service.findUserByUsernameAndPassword(user);
 		ModelAndView mav = new ModelAndView();
 		if(isSuccess) {

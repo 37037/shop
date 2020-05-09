@@ -87,7 +87,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </delete>
 	<select id="finduserByPage" parameterType="Map" resultType="com.ahpu.ssm.pojo.User">
 		select * from user
-		order by uid desc
 		limit #{start},#{size}
 	</select>
 	<select id="selectuserCount" resultType="int">
@@ -97,7 +96,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from user where uid=#{uid}
 	</delete>
 	<select id="finduser" parameterType="String" resultType="com.ahpu.ssm.pojo.User">
-		select * from user where uid=#{uid}
+		select * from user where username=#{username}
 	</select>
     <update id="updateuser" parameterType="com.ahpu.ssm.pojo.User">
         update user set password=#{password},name=#{name},telephone=#{telephone},email=#{email},sex=#{sex} where username=#{username}
