@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import com.ahpu.ssm.pojo.Comments;
+import com.ahpu.ssm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,10 +18,12 @@ import com.ahpu.ssm.pojo.User;
 import com.ahpu.ssm.service.admin.ProductService;
 
 @Controller
-public class ProductController {  
-	
+public class ProductController {
+
 	@Autowired
 	ProductService service;
+	@Autowired
+	UserService service1;
 	
 	
 	@RequestMapping("/hotProduct")
@@ -36,8 +40,9 @@ public class ProductController {
 	public ModelAndView getProdcutByPid(String pid) {
 		ModelAndView mav = new ModelAndView();
 		Product product = service.findProductByPid(pid);
-		
+		List<Comments> comments=service.findcomments(pid);
 		mav.addObject("p", product);
+		mav.addObject("comments", comments);
 		mav.setViewName("product_info");
 		return mav;
 	}

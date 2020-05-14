@@ -42,7 +42,7 @@
 						<img src="${pageContext.request.contextPath}/pic/${p.pimage}" width="170" height="170" style="display: inline-block;">
 					</a>
 					<div style="height: 60px">
-						<p><a href="${pageContext.request.contextPath }/product?methodStr=findByPid&pid=${p.pid}" style='color:green'>${p.pname }</a></p>
+						<p><a href="${pageContext.request.contextPath }/infoProduct.action?pid=${p.pid}" style='color:green'>${p.pname }</a></p>
 						<p><font color="#FF0000">商城价：&yen;${p.shop_price }</font></p>
 					</div>
 				</div>

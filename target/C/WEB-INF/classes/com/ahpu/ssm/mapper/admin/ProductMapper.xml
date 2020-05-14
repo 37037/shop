@@ -102,6 +102,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateCount">
 		update car set count = #{count} where uid=#{uid} and pid=#{pid}
 	</update>
+	<select id="findcomments" parameterType="String" resultType="com.ahpu.ssm.pojo.Comments">
+		select * from goodscomments where pid=#{pid}
+	</select>
+	<select id="findallcommentscount" resultType="int">
+		select count(*) from goodscomments
+	</select>
+	<select id="findallcomments" resultType="com.ahpu.ssm.pojo.Comments" parameterType="Map">
+		select * from goodscomments limit #{start},#{size}
+	</select>
 </mapper>
 
 

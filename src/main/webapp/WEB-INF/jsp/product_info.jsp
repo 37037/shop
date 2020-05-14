@@ -107,31 +107,36 @@
 					${p.pdesc }
 					</div>
 
-<%--					<div style="background-color:#d3d3d3;width:900px;">--%>
-<%--						<table class="table table-bordered">--%>
-<%--							<tbody>--%>
-<%--								<tr class="active">--%>
-<%--									<th><strong>商品评论</strong></th>--%>
-<%--								</tr>--%>
-<%--								<tr class="warning">--%>
-<%--									<th>暂无商品评论信息 <a>[发表商品评论]</a></th>--%>
-<%--								</tr>--%>
-<%--							</tbody>--%>
-<%--						</table>--%>
-<%--					</div>--%>
+					<div style="background-color:#d3d3d3;width:900px;">
+						<table class="table table-bordered">
+							<tbody>
 
-<%--					<div style="background-color:#d3d3d3;width:900px;">--%>
-<%--						<table class="table table-bordered">--%>
-<%--							<tbody>--%>
-<%--								<tr class="active">--%>
-<%--									<th><strong>商品咨询</strong></th>--%>
-<%--								</tr>--%>
-<%--								<tr class="warning">--%>
-<%--									<th>暂无商品咨询信息 <a>[发表商品咨询]</a></th>--%>
-<%--								</tr>--%>
-<%--							</tbody>--%>
-<%--						</table>--%>
-<%--					</div>--%>
+								<tr class="active">
+									<th><strong>商品评论</strong></th>
+								</tr>
+								<c:forEach items="${comments }" var="c">
+								<tr class="warning">
+									<th>
+										<p>时间：${c.time.toLocaleString()},用户名：${c.username}</p>
+											评论内容 ：<a>${c.comment}</a></th>
+								</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+
+					<div style="background-color:#d3d3d3;width:900px;">
+						<table class="table table-bordered">
+							<tbody>
+								<tr class="active">
+									<th><strong>商品咨询</strong></th>
+								</tr>
+								<tr class="warning">
+									<th>暂无商品咨询信息 <a>[发表商品咨询]</a></th>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 
 			</div>

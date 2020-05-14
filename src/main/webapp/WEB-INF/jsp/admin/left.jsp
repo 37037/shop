@@ -5,12 +5,16 @@
 <title>菜单</title>
 <link href="${pageContext.request.contextPath}/css/left.css" rel="stylesheet" type="text/css"/>
 <link rel="StyleSheet" href="${pageContext.request.contextPath}/css/dtree.css" type="text/css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css" type="text/css" />
+    <script src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js" type="text/javascript"></script>
+
     <style>
         p{
             text-align: center;
         }
         div{
-            margin-top: 50px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -57,19 +61,40 @@
 <%--  </tr>--%>
 <%--</table>--%>
 <div>
-    <p ><a href="${pageContext.request.contextPath}/admin/listCategory.action" target="mainFrame">所有分类</a></p>
-    <p><a href="${pageContext.request.contextPath}/admin/addCategory.action" target="mainFrame">添加分类</a></p>
-    <p><a href="${pageContext.request.contextPath}/admin/listProduct.action?curPage=1" target="mainFrame">所有商品</a></p>
-    <p><a href="${pageContext.request.contextPath}/admin/showAddProduct.action" target="mainFrame">添加商品</a></p>
-    <p><a href="${pageContext.request.contextPath}/admin/listOrder.action?curPage=1" target="mainFrame">所有订单</a></p>
-    <p><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=0" target="mainFrame">未付款订单</a></p>
-    <p><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=1" target="mainFrame">已付款订单</a></p>
-    <p><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=2" target="mainFrame">已发货订单</a></p>
-    <p><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=3" target="mainFrame">已完成订单</a></p>
-    <p><a href="${pageContext.request.contextPath}/admin/notice.action" target="mainFrame">公告管理</a></p>
-    <p><a href="${pageContext.request.contextPath}/admin/getuser.action?curPage=1" target="mainFrame">用户管理</a></p>
+<%--    <p ><a href="${pageContext.request.contextPath}/admin/listCategory.action" target="mainFrame">所有分类</a></p>--%>
+<%--    <p><a href="${pageContext.request.contextPath}/admin/addCategory.action" target="mainFrame">添加分类</a></p>--%>
+<%--    <p><a href="${pageContext.request.contextPath}/admin/listProduct.action?curPage=1" target="mainFrame">所有商品</a></p>--%>
+<%--    <p><a href="${pageContext.request.contextPath}/admin/showAddProduct.action" target="mainFrame">添加商品</a></p>--%>
+<%--    <p><a href="${pageContext.request.contextPath}/admin/listOrder.action?curPage=1" target="mainFrame">所有订单</a></p>--%>
+<%--    <p><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=0" target="mainFrame">未付款订单</a></p>--%>
+<%--    <p><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=1" target="mainFrame">已付款订单</a></p>--%>
+<%--    <p><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=2" target="mainFrame">已发货订单</a></p>--%>
+<%--    <p><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=3" target="mainFrame">已完成订单</a></p>--%>
+<%--    <p><a href="${pageContext.request.contextPath}/admin/notice.action" target="mainFrame">公告管理</a></p>--%>
+<%--    <p><a href="${pageContext.request.contextPath}/admin/getuser.action?curPage=1" target="mainFrame">用户管理</a></p>--%>
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <ul class="nav nav-tabs nav-stacked">
 
+
+
+                    <li><a href="${pageContext.request.contextPath}/admin/listCategory.action" target="mainFrame">所有分类</a></li>
+                    <li><a href="${pageContext.request.contextPath}/admin/addCategory.action" target="mainFrame">添加分类</a></li>
+                    <li><a href="${pageContext.request.contextPath}/admin/listProduct.action?curPage=1" target="mainFrame">所有商品</a></li>
+                    <li><a href="${pageContext.request.contextPath}/admin/showAddProduct.action" target="mainFrame">添加商品</a></li>
+                    <li><a href="${pageContext.request.contextPath}/admin/listOrder.action?curPage=1" target="mainFrame">所有订单</a></li>
+                    <li><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=0" target="mainFrame">未付款订单</a></li>
+                    <li><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=2" target="mainFrame">已发货订单</a></li>
+                    <li><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=1" target="mainFrame">已付款订单</a></li>
+                    <li><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=3" target="mainFrame">已完成订单</a></li>
+                    <li><a href="${pageContext.request.contextPath}/admin/notice.action" target="mainFrame">公告管理</a></li>
+                    <li><a href="${pageContext.request.contextPath}/admin/getuser.action?curPage=1" target="mainFrame">用户管理</a></li>
+                    <li><a href="${pageContext.request.contextPath}/admin/anser.action?curPage=1" target="mainFrame">评论管理</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
-
 </body>
 </html>

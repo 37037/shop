@@ -91,4 +91,18 @@ public class AdminOrderController {
 		mav.setViewName("admin/welcome");
 		return mav;
 	}
+	@RequestMapping("/findbyiod")
+	public ModelAndView findbyiod(String oid) {
+
+		ModelAndView mav = new ModelAndView();
+		if(service.selectOrderByOid(oid)!=null){
+		Order o=service.selectOrderByOid(oid);
+		mav.addObject("o", o);
+		mav.setViewName("admin/order/findoid");
+		return mav;}else {
+			mav.setViewName("admin/welcome");
+			mav.addObject("msg","不存在该订单");
+			return mav;
+		}
+	}
 }

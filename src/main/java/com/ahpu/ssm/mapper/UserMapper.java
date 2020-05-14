@@ -32,6 +32,7 @@ public interface UserMapper {
 	void updateuser( User user);
 	List<notice> findnotice();
 	void deletenotice(String nid);
+	void addcomments(Comments comments);
 
 
 

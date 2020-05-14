@@ -13,6 +13,7 @@ import com.ahpu.ssm.mapper.admin.ProductMapper;
 
 @Service
 public class ProductServiceImpl implements ProductService{
+
 	
 	@Autowired
 	ProductMapper mapper;
@@ -172,5 +173,36 @@ public class ProductServiceImpl implements ProductService{
 
 
 	}
+
+	@Override
+	public List<Comments> findcomments(String pid) {
+		return mapper.findcomments(pid);
+	}
+
+	@Override
+	public PageBean findallcomments(int curPage) {
+		PageBean<Comments> page = new PageBean<Comments>();
+		// 封装当前页数
+		page.setCurPage(curPage);
+
+		// 封装的总记录数
+		int totalCount = mapper.findallcommentscount();
+		page.setTotalSize(totalCount); // 查询总的记录数
+
+		// 计算总页数
+		double total = totalCount;
+		int totalPage = (int)Math.ceil(total/ PageBean.pageSize);
+		page.setTotalPage(totalPage);
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("start", (curPage - 1) * PageBean.pageSize);
+		map.put("size", PageBean.pageSize);
+
+		List<Comments> list = mapper.findallcomments(map); // 查询数据
+
+		page.setList(list);
+
+		return page;
+	}
+
 
 }

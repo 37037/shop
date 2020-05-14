@@ -46,7 +46,7 @@
 	</script>
 	<body>
 		<br>
-		<form id="Form1" name="Form1" action="${pageContext.request.contextPath}/user/list.jsp" method="post">
+		<form id="Form1" name="Form1" action="${pageContext.request.contextPath}/admin/findbyiod.action?oid=" method="get" >
 			<table cellSpacing="1" cellPadding="0" width="80%" align="center" bgColor="#808080" border="0">
 				<TBODY>
 					<tr>
@@ -54,7 +54,10 @@
 							<strong>订单列表</strong>
 						</TD>
 					</tr>
-					
+                    <tr>
+                        <td align="right"><input type="text" id="oid" name="oid" placeholder="请输入订单号"><button type="button" id="find">查找</button></td>
+
+                    </tr>
 					<tr>
 						<td class="ta_01" align="center" bgColor="white">
 							<table cellspacing="0" cellpadding="1" rules="all"
@@ -180,7 +183,10 @@
 		</form>
 	</body>
 	<script>
-
+        $("#find").click(function () {
+             var oid=$("#oid").val();
+            window.location.href="${pageContext.request.contextPath}/admin/findbyiod.action?oid="+oid;
+        })
 	</script>
 </HTML>
 

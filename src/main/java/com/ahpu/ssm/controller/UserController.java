@@ -1,19 +1,21 @@
 package com.ahpu.ssm.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import com.ahpu.ssm.pojo.Address;
-import com.ahpu.ssm.pojo.notice;
+import com.ahpu.ssm.pojo.*;
+import com.ahpu.ssm.service.admin.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ahpu.ssm.pojo.User;
 import com.ahpu.ssm.service.UserService;
 import com.ahpu.ssm.util.UUIDUtil;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +24,9 @@ public class UserController {
 	
 	@Autowired
 	UserService service;
+	@Autowired
+
+	OrderService service1;
 	
 	@RequestMapping("/regist")
 	public String regist() {
@@ -95,6 +100,31 @@ public class UserController {
 					String msg="no";
 					return msg;
 				}
+	}
+
+	@RequestMapping("/tocomments")
+	public String tocomments(HttpSession session, String oid1,HttpServletRequest re){
+		User u=(User)session.getAttribute("user");
+		System.out.println(44444);
+		System.out.println(oid1);
+		 Order o=service1.selectOrderByOid(oid1);
+		 o.setState(4);
+		 service1.updateOrder(o);
+		List<OrderItem> orderItems=service1.selectOrderItemByOid(oid1);
+		System.out.println(orderItems.size());
+		for(int i=0;i<orderItems.size();i++){
+			Comments c=new Comments();
+			c.setUsername(u.getUsername());
+			c.setTime(new Date(System.currentTimeMillis()));
+			c.setPid(re.getParameter("pid"+i));
+			c.setComment(re.getParameter("comment"+i));
+			System.out.println(c.getComment());
+			service.addcomment(c);
+		}
+
+
+
+		return "index";
 	}
 
 	

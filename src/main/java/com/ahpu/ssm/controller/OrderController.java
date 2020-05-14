@@ -149,6 +149,17 @@ public class OrderController {
 		mav.setViewName("orderdetail_list");
 		mav.addObject("page",page);
 		mav.addObject("oid",oid);
+
+		return mav;
+	}
+	@RequestMapping("/listDetail1")
+	public ModelAndView listDetail1(int curPage,String oid) {
+		ModelAndView mav = new ModelAndView();
+		PageBean page = service.userListDetail(curPage,oid);
+		System.out.println(page);
+		mav.setViewName("comments");
+		mav.addObject("page",page);
+		mav.addObject("oid",oid);
 		return mav;
 	}
 	

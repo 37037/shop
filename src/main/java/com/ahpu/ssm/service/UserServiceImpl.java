@@ -180,5 +180,10 @@ public class UserServiceImpl implements UserService{
         mapper.updateuser(user);
     }
 
+	@Override
+	public void addcomment(Comments comments) {
+		mapper.addcomments(comments);
+	}
+
 
 }

@@ -1,0 +1,160 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<HTML>
+<HEAD>
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="${pageContext.request.contextPath}/css/Style1.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css" type="text/css" />
+    <script src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/layer/layer.js"></script>
+    <style>
+        tr{
+            height: 40px;
+        }
+    </style>
+</HEAD>
+<script type="text/javascript">
+    //给订单详情按钮绑定点击事件
+    $(function() {
+        //页面加载完毕,给订单详情按钮绑定点击事件
+        $(".info").click(function() {
+
+            var oid = this.getAttribute("oid")
+            //当按钮被点击的时候，给服务器发送一个异步请求------>请求该订单的所有订单项信息
+            var content = "<table border='1' cellspacing='0' width='80%' align='center'><tr><th>商品图片</th><th>商品名称</th><th>购买数量</th><th>小计</th></tr>"
+            $.getJSON("${pageContext.request.contextPath}/admin/adminOrder.action",{"methodStr":"detail","oid":oid},function(result){
+                //result就是响应的json数据
+                //遍历result，每遍历出来一个数据就往content中添加一个tr
+                $(result).each(function(index,element) {
+                    content += "<tr><td><img width='50px' height='50px' src='${pageContext.request.contextPath}/pic/"+element.product.pimage+"' /></td><td>"+element.product.pname+"</td><td>"+element.count+"</td><td>"+element.subtotal+"</td></tr>"
+                })
+
+                //最后还要拼接一个"</table>"
+                content += "</table>"
+                layer.open({
+                    type: 1,//0:信息框; 1:页面; 2:iframe层;	3:加载层;	4:tip层
+                    title:"订单详情",//标题
+                    area: ['800px', '500px'],//大小
+                    shadeClose: true, //点击弹层外区域 遮罩关闭
+                    content: content//弹框里面的内容
+                })
+            })
+        })
+    })
+</script>
+<body>
+<br>
+<form id="Form1" name="Form1" action="${pageContext.request.contextPath}/admin/oneorder.action" >
+    <table cellSpacing="1" cellPadding="0" width="80%" align="center" bgColor="#808080" border="0">
+        <TBODY>
+        <tr>
+            <td class="ta_01" align="center" bgColor="gray">
+                <strong>订单列表</strong>
+            </TD>
+        </tr>
+        <tr>
+            <td align="right"><input type="text" id="oid" name="oid" placeholder="请输入订单号"><button>查找</button></td>
+
+        </tr>
+        <tr>
+            <td class="ta_01" align="center" bgColor="white">
+                <table cellspacing="0" cellpadding="1" rules="all"
+                       bordercolor="gray" border="1" id="DataGrid1"
+                       style="BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BORDER-LEFT: gray 1px solid; WIDTH: 100%; WORD-BREAK: break-all; BORDER-BOTTOM: gray 1px solid; BORDER-COLLAPSE: collapse; BACKGROUND-COLOR: #f5fafe; WORD-WRAP: break-word">
+                    <tr
+                            style="FONT-WEIGHT: bold; FONT-SIZE: 12pt; HEIGHT: 25px; BACKGROUND-COLOR: gray">
+
+                        <td align="center" width="10%">
+                            订单编号
+                        </td>
+                        <td align="center" width="10%">
+                            订单金额
+                        </td>
+                        <td align="center" width="10%">
+                            下单时间
+                        </td>
+                        <td align="center" width="10%">
+                            订单地址
+                        </td>
+                        <td align="center" width="10%">
+                            收货人电话
+                        </td>
+                        <td align="center" width="10%">
+                            收货人
+                        </td>
+                        <td align="center" width="10%">
+                            订单状态
+                        </td>
+                        <td align="center" width="10%" class="info">
+                            订单详情
+                        </td>
+                        <td align="center" width="10%">
+                            操作
+                        </td>
+                    </tr>
+
+                        <tr>
+
+                            <td style="CURSOR: hand; HEIGHT: 22px" align="center"
+                                width="10%">
+                                    ${o.oid }
+                            </td>
+                            <td style="CURSOR: hand; HEIGHT: 22px" align="center"
+                                width="10%">
+                                    ${o.total }
+                            </td>
+                            <td style="CURSOR: hand; HEIGHT: 22px" align="center"
+                                width="10%">
+                                    ${o.ordertime }
+                            </td>
+                            <td style="CURSOR: hand; HEIGHT: 22px" align="center"
+                                width="10%">
+                                    ${o.address }
+                            </td>
+                            <td style="CURSOR: hand; HEIGHT: 22px" align="center"
+                                width="10%">
+                                    ${o.telephone }
+                            </td>
+                            <td style="CURSOR: hand; HEIGHT: 22px" align="center"
+                                width="10%">
+                                    ${o.name }
+                            </td>
+                            <td style="CURSOR: hand; HEIGHT: 22px" align="center"
+                                width="10%">
+                                <c:if test="${o.state == 0}">
+                                    未付款
+                                </c:if>
+                                <c:if test="${o.state == 1 }">
+                                    <a href = "${pageContext.request.contextPath }/admin/utilOrder.action?oid=${o.oid}" id="sub">去发货</a>
+                                </c:if>
+                                <c:if test="${o.state == 2 }">
+                                    已发货
+                                </c:if>
+                                <c:if test="${o.state== 3 }">
+                                    订单完成
+                                </c:if>
+
+                            </td>
+                            <td align="center" style="HEIGHT: 22px">
+                                <input class="info" type="button" value="订单详情" oid='${o.oid }'/>
+                            </td>
+                            <td align="center" style="HEIGHT: 22px">
+                                <a href = "${pageContext.request.contextPath }/admin/deleteOrder.action?oid=${o.oid}">删除</a>
+                            </td>
+                        </tr>
+
+                </table>
+            </td>
+        </tr>
+        </TBODY>
+    </table>
+
+</form>
+</body>
+<script>
+
+</script>
+</HTML>
+

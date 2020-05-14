@@ -29,5 +29,6 @@ public interface UserService {
 	void deleteuser(String uid);
 	User finduser(String username);
 	void updatemessage(User user);
+	void addcomment(Comments comments);
 
 }

@@ -65,8 +65,11 @@
 											已付款（总金额${order.total}）<a onclick="cl(this)">确认收货</a>
 										</c:if>
 											<c:if test="${order.state == 3}">
-												已完成
+												已完成 <a href="${pageContext.request.contextPath }/order/listDetail1.action?oid=${order.oid}&curPage=1">去评价</a>
 											</c:if>
+										<c:if test="${order.state==4}">
+											已完成
+										</c:if>
 
 									</th>
 									<th colspan="2">${order.ordertime }

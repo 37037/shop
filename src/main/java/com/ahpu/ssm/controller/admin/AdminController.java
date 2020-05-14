@@ -3,9 +3,8 @@ package com.ahpu.ssm.controller.admin;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import com.ahpu.ssm.pojo.PageBean;
-import com.ahpu.ssm.pojo.admin;
-import com.ahpu.ssm.pojo.notice;
+import com.ahpu.ssm.pojo.*;
+import com.ahpu.ssm.service.admin.ProductService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ahpu.ssm.pojo.User;
 import com.ahpu.ssm.service.UserService;
 import com.ahpu.ssm.util.UUIDUtil;
 
@@ -25,6 +23,8 @@ import java.util.List;
 public class AdminController {
 	@Autowired
 	UserService service;
+	@Autowired
+	ProductService service1;
 	@RequestMapping("/getuser")
 	public ModelAndView getuser(int curPage){
 		ModelAndView mav=new ModelAndView();
@@ -154,7 +154,16 @@ public class AdminController {
 
         return "success";
     }
-	
-	
+
+	@RequestMapping("/anser")
+	public  ModelAndView anser(int curPage ){
+		ModelAndView mav=new ModelAndView();
+		PageBean page=service1.findallcomments(curPage);
+		mav.addObject("page",page);
+		mav.setViewName("admin/product/comments");
+
+
+		return mav;
+	}
 
 }

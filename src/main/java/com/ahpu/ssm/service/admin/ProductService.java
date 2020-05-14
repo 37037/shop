@@ -2,10 +2,7 @@ package com.ahpu.ssm.service.admin;
 
 import java.util.List;
 
-import com.ahpu.ssm.pojo.Cart;
-import com.ahpu.ssm.pojo.PageBean;
-import com.ahpu.ssm.pojo.Product;
-import com.ahpu.ssm.pojo.User;
+import com.ahpu.ssm.pojo.*;
 
 public interface ProductService {
 
@@ -33,7 +30,8 @@ public interface ProductService {
 	
 	PageBean listsearchProduct(String seastr , int curPage);
 	void updateCount(Cart c);
-
+	List<Comments> findcomments( String pid);
+	PageBean findallcomments(int curPage);
 
 
 

@@ -107,6 +107,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deletenotice" parameterType="String">
 		delete from notice where nid=#{nid}
 	</delete>
+	<insert id="addcomments" parameterType="com.ahpu.ssm.pojo.Comments">
+		insert into goodscomments(comment,time,pid,username) values(#{comment},#{time},#{pid},#{username});
+	</insert>
+
 </mapper>
 
 
