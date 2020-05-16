@@ -155,10 +155,9 @@ public class OrderController {
 	@RequestMapping("/listDetail1")
 	public ModelAndView listDetail1(int curPage,String oid) {
 		ModelAndView mav = new ModelAndView();
-		PageBean page = service.userListDetail(curPage,oid);
-		System.out.println(page);
+		List<OrderItem> list = service.selectOrderItemByOid(oid);
 		mav.setViewName("comments");
-		mav.addObject("page",page);
+		mav.addObject("list",list);
 		mav.addObject("oid",oid);
 		return mav;
 	}

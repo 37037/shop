@@ -90,7 +90,8 @@
                     <li><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=3" target="mainFrame">已完成订单</a></li>
                     <li><a href="${pageContext.request.contextPath}/admin/notice.action" target="mainFrame">公告管理</a></li>
                     <li><a href="${pageContext.request.contextPath}/admin/getuser.action?curPage=1" target="mainFrame">用户管理</a></li>
-                    <li><a href="${pageContext.request.contextPath}/admin/anser.action?curPage=1" target="mainFrame">评论管理</a></li>
+                    <li><a href="${pageContext.request.contextPath}/admin/anser.action?curPage=1" target="mainFrame">未回复评论</a></li>
+                    <li><a href="${pageContext.request.contextPath}/admin/yesanser.action?curPage=1" target="mainFrame">已回复评论</a></li>
                 </ul>
             </div>
         </div>

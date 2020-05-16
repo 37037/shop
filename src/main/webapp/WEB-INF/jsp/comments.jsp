@@ -51,7 +51,7 @@
 
                 </tr>
 
-                <c:forEach items="${page.list }" var="orderitem" varStatus="v">
+                <c:forEach items="${list }" var="orderitem" varStatus="v">
                     <tr class="active">
                         <td  width="20%">
                             <input type="hidden"  value="22">
@@ -76,38 +76,14 @@
                     </tr>
                 </c:forEach>
                 <tr>
-                    <td colspan="4"><input type="submit"></td>
+                    <td colspan="4" align="center"><input class="btn btn-success" type="submit" width="100px"></td>
                 </tr>
                 </tbody>
             </table>
             </form>
         </div>
     </div>
-    <div style="text-align: center;">
-        <ul class="pagination">
-            <c:if test="${page.curPage != 1 }">
-                <li><a href="${pageContext.request.contextPath }/order/listDetail.action?oid=${oid}&curPage=${page.curPage - 1}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-            </c:if>
 
-            <c:forEach begin="1" end="${page.totalPage }" var="i">
-                <c:if test="${page.curPage == i }">
-                    <li class="active"><a>${i }</a></li>
-                </c:if>
-
-                <c:if test="${page.curPage != i }">
-                    <li><a href="${pageContext.request.contextPath }/order/listDetail.action?oid=${oid}&curPage=${i }">${i }</a></li>
-                </c:if>
-            </c:forEach>
-
-            <c:if test="${page.curPage != page.totalPage }">
-                <li>
-                    <a href="${pageContext.request.contextPath }/order/listDetail.action?oid=${oid}&curPage=${page.curPage + 1}" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </c:if>
-        </ul>
-    </div>
 </div>
 
 </body>

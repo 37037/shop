@@ -116,9 +116,17 @@
 								</tr>
 								<c:forEach items="${comments }" var="c">
 								<tr class="warning">
-									<th>
+									<th width="50%">
 										<p>时间：${c.time.toLocaleString()},用户名：${c.username}</p>
-											评论内容 ：<a>${c.comment}</a></th>
+											评论内容 ：<a>${c.comment}</a>
+									</th>
+									<c:if test="${empty c.anser}">
+										<th width="50%">店家暂时没有回复</th>
+									</c:if>
+									<c:if test="${ not empty c.anser}">
+										<th width="50%">店家回复：${c.anser}</th>
+									</c:if>
+
 								</tr>
 								</c:forEach>
 							</tbody>

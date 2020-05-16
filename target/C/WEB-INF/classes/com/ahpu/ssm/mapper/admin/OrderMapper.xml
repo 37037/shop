@@ -98,6 +98,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where orderitem.pid=product.pid and oid = #{oid}
 		limit #{start},#{size}
 	</select>
+    <select id="findByPage5" parameterType="Map"  resultMap="ProdctResultMap">
+		select orderitem.*,product.pname,product.pid,product.pimage,product.shop_price
+		from orderitem,product
+		where orderitem.pid=product.pid and oid = #{oid}
+	</select>
 	
 	<select id="selectCount" resultType="int">
 			select count(*) from orders;

@@ -32,6 +32,10 @@ public interface ProductService {
 	void updateCount(Cart c);
 	List<Comments> findcomments( String pid);
 	PageBean findallcomments(int curPage);
+	PageBean findallcommentsyes(int curPage);
+	Comments findcommentsbygid(String gid);
+	 void updatecomments(Comments comments);
+
 
 
 

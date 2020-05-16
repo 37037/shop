@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import com.ahpu.ssm.pojo.*;
 import com.ahpu.ssm.service.admin.OrderService;
+import com.ahpu.ssm.service.admin.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -27,6 +28,8 @@ public class UserController {
 	@Autowired
 
 	OrderService service1;
+	@Autowired
+	ProductService service2;
 	
 	@RequestMapping("/regist")
 	public String regist() {
@@ -39,8 +42,14 @@ public class UserController {
 	}
 
 	@RequestMapping("/index")
-	public String index() {
-		return "index";
+	public ModelAndView index() {
+		List<Product> p=service2.findHotProduct();
+		List<Product> p1=service2.findlatestProduct();
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("p",p);
+		mav.addObject("p1",p1);
+		mav.setViewName("index");
+		return mav;
 	}
 	
 	
@@ -103,14 +112,16 @@ public class UserController {
 	}
 
 	@RequestMapping("/tocomments")
-	public String tocomments(HttpSession session, String oid1,HttpServletRequest re){
+	public ModelAndView tocomments(HttpSession session, String oid0,HttpServletRequest re){
 		User u=(User)session.getAttribute("user");
 		System.out.println(44444);
-		System.out.println(oid1);
-		 Order o=service1.selectOrderByOid(oid1);
+		System.out.println(oid0);
+		System.out.println(666);
+
+		Order o=service1.selectOrderByOid(oid0);
 		 o.setState(4);
 		 service1.updateOrder(o);
-		List<OrderItem> orderItems=service1.selectOrderItemByOid(oid1);
+		List<OrderItem> orderItems=service1.selectOrderItemByOid(oid0);
 		System.out.println(orderItems.size());
 		for(int i=0;i<orderItems.size();i++){
 			Comments c=new Comments();
@@ -122,9 +133,11 @@ public class UserController {
 			service.addcomment(c);
 		}
 
+		String url ="redirect:http://localhost:8080/C/order/orderlist.action?curPage="+1;
+
+		return new ModelAndView(url);
 
 
-		return "index";
 	}
 
 	
@@ -170,15 +183,17 @@ public class UserController {
 
     @RequestMapping("add")
     @ResponseBody
-	public String add(String person,String phone,String address,HttpSession session) {
+	public String add(String person,String phone,String address,String address1,HttpSession session) {
 
 		User loginUser = (User) session.getAttribute("user");
+		System.out.println(address1);
+		String add=address1+address;
 		Address a=new Address();
 		a.setAid(UUIDUtil.getUUId());
 		a.setPerson(person);
 		a.setUsername(loginUser.getUsername());
 		a.setPhone(phone);
-		a.setAddress(address);
+		a.setAddress(add);
 
 		System.out.println(a.getAddress());
 		System.out.println(a.getPerson());

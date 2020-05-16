@@ -33,12 +33,12 @@
                         <td align="center" width="18%">
                             序号
                         </td>
-<%--                        <td align="center" width="17%">--%>
-<%--                            商品图片--%>
-<%--                        </td>--%>
-<%--                        <td align="center" width="17%">--%>
-<%--                            商品名称--%>
-<%--                        </td>--%>
+                        <%--                        <td align="center" width="17%">--%>
+                        <%--                            商品图片--%>
+                        <%--                        </td>--%>
+                        <%--                        <td align="center" width="17%">--%>
+                        <%--                            商品名称--%>
+                        <%--                        </td>--%>
 
                         <td align="center" width="17%">
                             评论内容
@@ -52,12 +52,7 @@
                         <td width="7%" align="center">
                             回复
                         </td>
-                        <td width="7%" align="center">
-                            操作
-                        </td>
-                        <td width="7%" style="display: none" align="center">
-                            gid
-                        </td>
+
                     </tr>
                     <c:forEach items="${page.list }" var="p" varStatus="vs">
                         <tr onmouseover="this.style.backgroundColor = 'white'"
@@ -66,14 +61,14 @@
                                 width="18%">
                                     ${vs.count }
                             </td>
-<%--                            <td style="CURSOR: hand; HEIGHT: 22px" align="center"--%>
-<%--                                width="17%">--%>
-<%--                                <img width="40" height="45" src="${ pageContext.request.contextPath }/pic/${p.pimage}">--%>
-<%--                            </td>--%>
-<%--                            <td style="CURSOR: hand; HEIGHT: 22px" align="center"--%>
-<%--                                width="17%">--%>
-<%--                                    ${p.pname }--%>
-<%--                            </td>--%>
+                                <%--                            <td style="CURSOR: hand; HEIGHT: 22px" align="center"--%>
+                                <%--                                width="17%">--%>
+                                <%--                                <img width="40" height="45" src="${ pageContext.request.contextPath }/pic/${p.pimage}">--%>
+                                <%--                            </td>--%>
+                                <%--                            <td style="CURSOR: hand; HEIGHT: 22px" align="center"--%>
+                                <%--                                width="17%">--%>
+                                <%--                                    ${p.pname }--%>
+                                <%--                            </td>--%>
                             <td style="CURSOR: hand; HEIGHT: 22px" align="center"
                                 width="17%">
                                     ${p.comment }
@@ -88,27 +83,20 @@
                             </td>
                             <td style="CURSOR: hand; HEIGHT: 22px" align="center"
                                 width="17%">
-                                <textarea name="anser"  ></textarea>
+                               ${p.anser}
                             </td>
-                            <td style="CURSOR: hand; HEIGHT: 22px" align="center"
-                                     width="17%">
-                            <button type="button" id="but" onclick="my(this)" style="margin-bottom: 5px">确定</button>
-                        </td>
-                            <td style="CURSOR: hand; HEIGHT: 22px;display: none" align="center"
-                                width="17%">
-                                <input type="text" name="gid" value="${p.gid}">
-                            </td>
-<%--                            <td align="center" style="HEIGHT: 22px">--%>
-<%--                                <a href="${ pageContext.request.contextPath }/admin/editProduct.action?pid=${p.pid}">--%>
-<%--                                    <img src="${pageContext.request.contextPath}/images/i_edit.gif" border="0" style="CURSOR: hand">--%>
-<%--                                </a>--%>
-<%--                            </td>--%>
 
-<%--                            <td align="center" style="HEIGHT: 22px">--%>
-<%--                                <a href="${ pageContext.request.contextPath }/admin/deleteProduct.action?pid=${p.pid}">--%>
-<%--                                    <img src="${pageContext.request.contextPath}/images/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">--%>
-<%--                                </a>--%>
-<%--                            </td>--%>
+                                <%--                            <td align="center" style="HEIGHT: 22px">--%>
+                                <%--                                <a href="${ pageContext.request.contextPath }/admin/editProduct.action?pid=${p.pid}">--%>
+                                <%--                                    <img src="${pageContext.request.contextPath}/images/i_edit.gif" border="0" style="CURSOR: hand">--%>
+                                <%--                                </a>--%>
+                                <%--                            </td>--%>
+
+                                <%--                            <td align="center" style="HEIGHT: 22px">--%>
+                                <%--                                <a href="${ pageContext.request.contextPath }/admin/deleteProduct.action?pid=${p.pid}">--%>
+                                <%--                                    <img src="${pageContext.request.contextPath}/images/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">--%>
+                                <%--                                </a>--%>
+                                <%--                            </td>--%>
                         </tr>
                     </c:forEach>
                 </table>
@@ -120,7 +108,7 @@
 <div style="text-align: center;">
     <ul class="pagination">
         <c:if test="${page.curPage != 1 }">
-            <li><a href="${pageContext.request.contextPath }/admin/anser.action?curPage=${page.curPage - 1}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+            <li><a href="${pageContext.request.contextPath }/admin/yesanser.action?curPage=${page.curPage - 1}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
         </c:if>
 
         <c:forEach begin="1" end="${page.totalPage }" var="i">
@@ -131,12 +119,12 @@
 
             <c:if test="${page.curPage != i }">
 
-                <li><a href="${pageContext.request.contextPath }/admin/anser.action?curPage=${i}">${i }</a></li>
+                <li><a href="${pageContext.request.contextPath }/admin/yesanser.action?curPage=${i}">${i }</a></li>
             </c:if>
         </c:forEach>
         <c:if test="${page.curPage != page.totalPage }">
             <li>
-                <a href="${pageContext.request.contextPath }/admin/anser.action?curPage=${page.curPage + 1}" aria-label="Next">
+                <a href="${pageContext.request.contextPath }/admin/yesanser.action?curPage=${page.curPage + 1}" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
@@ -144,15 +132,5 @@
     </ul>
 </div>
 </body>
-<script>
-    function my(obj) {
-        var $td = $(obj).parents('tr').children('td');
-        var anser=$td.eq(4).find("textarea").val();
-        var gid=$td.eq(6).find("input").val();
-        window.location.href="${pageContext.request.contextPath}/admin/updateanser.action?"+"anser="+anser+"&gid="+gid
-        console.log(anser);
-        console.log(gid);
-    }
-</script>
 </HTML>
 

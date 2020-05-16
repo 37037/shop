@@ -39,7 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 定义一个通用的查询字段 -->
 	<sql id = "Base_Column_List">
-		pid,pname,pimage,pdate,pdesc,shop_price,market_price,is_hot,pcount,cid
+		pid,pname,pimage,pdate,pdesc,shop_price,market_price,is_hot,pcount,cid,is_latest
 	</sql>
 	
 	<!--List<Product> findByPage(Map<String, Object> map);-->
@@ -104,13 +104,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	<select id="findcomments" parameterType="String" resultType="com.ahpu.ssm.pojo.Comments">
 		select * from goodscomments where pid=#{pid}
+		order by time desc
 	</select>
 	<select id="findallcommentscount" resultType="int">
-		select count(*) from goodscomments
+		select count(*) from goodscomments where state=0
 	</select>
 	<select id="findallcomments" resultType="com.ahpu.ssm.pojo.Comments" parameterType="Map">
-		select * from goodscomments limit #{start},#{size}
+		select * from goodscomments where state=0
+		order by time desc
+		limit #{start},#{size}
 	</select>
+    <select id="findallcommentscountyes" resultType="int">
+		select count(*) from goodscomments where state=1
+	</select>
+    <select id="findallcommentsyes" resultType="com.ahpu.ssm.pojo.Comments" parameterType="Map">
+		select * from goodscomments where state=1
+		order by time desc
+		limit #{start},#{size}
+	</select>
+    <select id="findcommentsbygid" parameterType="String" resultType="com.ahpu.ssm.pojo.Comments">
+        select * from goodscomments where gid=#{gid}
+    </select>
+    <update id="updatecomments" parameterType="com.ahpu.ssm.pojo.Comments">
+       update goodscomments set state = #{state},anser=#{anser} where gid=#{gid}
+    </update>
 </mapper>
 
 

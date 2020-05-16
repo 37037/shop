@@ -84,33 +84,39 @@
 					<div class="form-group">
 						<input type="hidden" name="methodStr" value="pay">
 						<input type="hidden" name="oid" value="${order.oid }">
+						<c:if test="${empty list}">
+							<h1>暂无地址信息请添加</h1>
+						</c:if>
+						<c:if test="${ not empty list}">
 						<div class="col-sm-5">
-								收 &nbsp  &nbsp  货  &nbsp  人：<select id="inputPassword3" name="name">
-								<c:forEach items="${list}" var="entry" >
-									<option value="${entry.person}" id="username">${entry.person}</option>
-								</c:forEach>
-							</select>
+							收 &nbsp  &nbsp  货  &nbsp  人：<select id="inputPassword3" name="name">
+							<c:forEach items="${list}" var="entry" >
+								<option value="${entry.person}" id="username">${entry.person}</option>
+							</c:forEach>
+						</select>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-sm-5">
-								收 货 地 址 ：<select id="username" name="address">
-								<c:forEach items="${list}" var="entry" >
-									<option value="${entry.address}">${entry.address}</option>
-								</c:forEach>
-							</select>
+							收 货 地 址 ：<select id="username" name="address">
+							<c:forEach items="${list}" var="entry" >
+								<option value="${entry.address}">${entry.address}</option>
+							</c:forEach>
+						</select>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-sm-5">
-								收货人电话：<select id="confirmpwd" name="telephone">
-								<c:forEach items="${list}" var="entry" >
-									<option value="${entry.phone}">${entry.phone}</option>
-								</c:forEach>
-							</select>
+							收货人电话：<select id="confirmpwd" name="telephone">
+							<c:forEach items="${list}" var="entry" >
+								<option value="${entry.phone}">${entry.phone}</option>
+							</c:forEach>
+						</select>
 
 						</div>
 					</div>
+						</c:if>
+
 					<a href="${pageContext.request.contextPath}/adress.action">新增收货信息</a>
 				<hr/>
 
@@ -141,6 +147,7 @@
 	
 						</p>
 					<hr/>
+					</div>
 					</form>
 					<p style="text-align:right;margin-right:100px;" onclick="isnull()">
 <%--						<a href="javascript:document.getElementById('orderForm').submit();">--%>
@@ -157,7 +164,13 @@
 	</body>
 	<script>
 		function isnull() {
+			if($("#username").text()!=""){
 				$("#orderForm").submit();
+
+			}else {
+				alert("收货信息不能为空")
+			}
+
 
 		}
 

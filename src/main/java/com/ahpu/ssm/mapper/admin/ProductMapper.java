@@ -41,6 +41,11 @@ public interface ProductMapper {
 	List<Comments> findcomments(String pid);
 	int findallcommentscount();
 	List<Comments> findallcomments(Map<String, Object> map);
+	int findallcommentscountyes();
+	List<Comments> findallcommentsyes(Map<String, Object> map);
+	Comments findcommentsbygid(String gid);
+			void updatecomments(Comments comments);
+
 
 
 

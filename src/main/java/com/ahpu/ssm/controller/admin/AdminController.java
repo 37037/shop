@@ -166,4 +166,29 @@ public class AdminController {
 		return mav;
 	}
 
+	@RequestMapping("/yesanser")
+	public  ModelAndView yesanser(int curPage ){
+		ModelAndView mav=new ModelAndView();
+		PageBean page=service1.findallcommentsyes(curPage);
+		mav.addObject("page",page);
+		mav.setViewName("admin/product/commentsyes");
+
+
+		return mav;
+	}
+	@RequestMapping("/updateanser")
+	public  ModelAndView updateanser(String anser,String gid ){
+		ModelAndView mav=new ModelAndView();
+		Comments comments=service1.findcommentsbygid(gid);
+		System.out.println(		comments.getComment()
+);
+		comments.setAnser(anser);
+		comments.setState(1);
+		service1.updatecomments(comments);
+		mav.addObject("msg","回复成功");
+		mav.setViewName("admin/welcome");
+
+
+		return mav;
+	}
 }

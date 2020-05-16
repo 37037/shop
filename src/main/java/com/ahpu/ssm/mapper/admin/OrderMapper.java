@@ -20,6 +20,7 @@ public interface OrderMapper {
 	List<Order> findByPage2(Map<String, Object> map);
 	List<Order> findByPage3(Map<String, Object> map);
 	List<OrderItem> findByPage4(Map<String, Object> map);
+	List<OrderItem> findByPage5(Map<String, Object> map);
 	int selectCount();
 	int selectCountqita(int state);
 	int selectCountByUsernameid(String usernameid);

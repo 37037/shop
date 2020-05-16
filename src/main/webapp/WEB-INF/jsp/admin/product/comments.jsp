@@ -14,7 +14,7 @@
 </HEAD>
 <body>
 <br>
-<form id="Form1" name="Form1" action="${pageContext.request.contextPath}/admin/find.action?curPage=1" method="post">
+<form id="Form1" name="Form1">
     <table cellSpacing="1" cellPadding="0" width="80%" align="center" bgColor="#808080" border="0">
         <TBODY>
         <tr>
@@ -52,6 +52,12 @@
                         <td width="7%" align="center">
                             回复
                         </td>
+                        <td width="7%" align="center">
+                            操作
+                        </td>
+                        <td width="7%" style="display: none" align="center">
+                            gid
+                        </td>
                     </tr>
                     <c:forEach items="${page.list }" var="p" varStatus="vs">
                         <tr onmouseover="this.style.backgroundColor = 'white'"
@@ -82,7 +88,15 @@
                             </td>
                             <td style="CURSOR: hand; HEIGHT: 22px" align="center"
                                 width="17%">
-                                <textarea name="" id="" ></textarea>
+                                <textarea name="anser"  ></textarea>
+                            </td>
+                            <td style="CURSOR: hand; HEIGHT: 22px" align="center"
+                                     width="17%">
+                            <button type="button" id="but" onclick="my(this)" style="margin-bottom: 5px">确定</button>
+                        </td>
+                            <td style="CURSOR: hand; HEIGHT: 22px;display: none" align="center"
+                                width="17%">
+                                <input type="text" name="gid" value="${p.gid}">
                             </td>
 <%--                            <td align="center" style="HEIGHT: 22px">--%>
 <%--                                <a href="${ pageContext.request.contextPath }/admin/editProduct.action?pid=${p.pid}">--%>
@@ -130,5 +144,15 @@
     </ul>
 </div>
 </body>
+<script>
+    function my(obj) {
+        var $td = $(obj).parents('tr').children('td');
+        var anser=$td.eq(4).find("textarea").val();
+        var gid=$td.eq(6).find("input").val();
+        window.location.href="${pageContext.request.contextPath}/admin/updateanser.action?"+"anser="+anser+"&gid="+gid
+        console.log(anser);
+        console.log(gid);
+    }
+</script>
 </HTML>
 

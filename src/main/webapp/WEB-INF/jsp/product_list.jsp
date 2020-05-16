@@ -37,13 +37,16 @@
 				</ol>
 			</div>
 			<c:forEach items="${page.list }" var="p">
-				<div class="col-md-2">
-					<a href="${pageContext.request.contextPath }/infoProduct.action?pid=${p.pid}">
-						<img src="${pageContext.request.contextPath}/pic/${p.pimage}" width="170" height="170" style="display: inline-block;">
-					</a>
-					<div style="height: 60px">
-						<p><a href="${pageContext.request.contextPath }/infoProduct.action?pid=${p.pid}" style='color:green'>${p.pname }</a></p>
-						<p><font color="#FF0000">商城价：&yen;${p.shop_price }</font></p>
+				<div class="panel panel-default col-md-2" style="height: 220px">
+					<div class="panel-heading" align="center">
+						<a href="${pageContext.request.contextPath}/infoProduct.action?pid=${p.pid}"><img src="${pageContext.request.contextPath}/pic/${p.pimage}" width='100' height='100' style='display: inline-block;' alt="">
+						</a>
+					</div>
+					<div class="panel-body" align="center">
+						<p><a href="${pageContext.request.contextPath}/infoProduct.action?pid=${p.pid}">${p.pname}</a>
+						</p>
+						<p><span style="float: left">销量：${p.is_latest}</span> <span style="float: right">￥：${p.shop_price}</span>
+						</p>
 					</div>
 				</div>
 			</c:forEach>

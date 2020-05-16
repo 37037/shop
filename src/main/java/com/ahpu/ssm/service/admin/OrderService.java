@@ -19,5 +19,6 @@ public interface OrderService {
 	PageBean listOrderQita(int curPage , int state);
 	PageBean userListOrder(int curPage,String usernameid);
 	PageBean userListDetail(int curPage,String oid);
+
 	Cart findcid(String cid);
 }

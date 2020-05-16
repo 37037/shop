@@ -125,7 +125,8 @@
 				<div style="text-align:right;margin-top:10px;margin-bottom:10px;">
 					<a href="${pageContext.request.contextPath }/car/clearcar.action? id="clear" class="clear">清空购物车</a>
 
-                    <button id="submi" onclick="Getcid()">提交订单</button>
+                    <button id="submi" class="btn btn-success" onclick="Getcid()">提交订单</button>
+
 				</div>
 			</div>
 

@@ -204,5 +204,40 @@ public class ProductServiceImpl implements ProductService{
 		return page;
 	}
 
+	@Override
+	public PageBean findallcommentsyes(int curPage) {
+		PageBean<Comments> page = new PageBean<Comments>();
+		// 封装当前页数
+		page.setCurPage(curPage);
+
+		// 封装的总记录数
+		int totalCount = mapper.findallcommentscountyes();
+		page.setTotalSize(totalCount); // 查询总的记录数
+
+		// 计算总页数
+		double total = totalCount;
+		int totalPage = (int)Math.ceil(total/ PageBean.pageSize);
+		page.setTotalPage(totalPage);
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("start", (curPage - 1) * PageBean.pageSize);
+		map.put("size", PageBean.pageSize);
+
+		List<Comments> list = mapper.findallcommentsyes(map); // 查询数据
+
+		page.setList(list);
+
+		return page;
+	}
+
+	@Override
+	public Comments findcommentsbygid(String gid) {
+		return mapper.findcommentsbygid(gid);
+	}
+
+	@Override
+	public void updatecomments(Comments comments) {
+		mapper.updatecomments(comments);
+	}
+
 
 }
