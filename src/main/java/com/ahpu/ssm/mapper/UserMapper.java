@@ -33,7 +33,7 @@ public interface UserMapper {
 	List<notice> findnotice();
 	void deletenotice(String nid);
 	void addcomments(Comments comments);
-
+	int selectcount(int state);
 
 
 

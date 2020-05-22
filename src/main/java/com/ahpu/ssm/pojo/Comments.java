@@ -10,6 +10,7 @@ public class Comments {
     private String anser;
     private int state;
     private String gid;
+    private String grade;
 
     public String getGid() {
         return gid;
@@ -19,32 +20,12 @@ public class Comments {
         this.gid = gid;
     }
 
-    @Override
-    public String toString() {
-        return "Comments{" +
-                "comment='" + comment + '\'' +
-                ", username='" + username + '\'' +
-                ", time=" + time +
-                ", pid='" + pid + '\'' +
-                ", anser='" + anser + '\'' +
-                ", state=" + state +
-                ", gid='" + gid + '\'' +
-                '}';
-    }
+
 
     public String getAnser() {
         return anser;
     }
 
-    public Comments(String comment, String username, Date time, String pid, String anser, int state, String gid) {
-        this.comment = comment;
-        this.username = username;
-        this.time = time;
-        this.pid = pid;
-        this.anser = anser;
-        this.state = state;
-        this.gid = gid;
-    }
 
     public void setAnser(String anser) {
         this.anser = anser;
@@ -54,15 +35,31 @@ public class Comments {
         return state;
     }
 
+    public Comments() {
+    }
+
     public void setState(int state) {
         this.state = state;
     }
 
-
-
-    public Comments() {
+    public Comments(String comment, String username, Date time, String pid, String anser, int state, String gid, String grade) {
+        this.comment = comment;
+        this.username = username;
+        this.time = time;
+        this.pid = pid;
+        this.anser = anser;
+        this.state = state;
+        this.gid = gid;
+        this.grade = grade;
     }
 
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
 
     public String getComment() {
         return comment;

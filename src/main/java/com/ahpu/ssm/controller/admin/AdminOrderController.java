@@ -78,7 +78,7 @@ public class AdminOrderController {
 
 		}
 		mav.addObject("msg","success");
-		mav.setViewName("admin/msg");
+		mav.setViewName("admin/welcome");
 		return mav;
 	}
 	@RequestMapping("/deleteOrder")

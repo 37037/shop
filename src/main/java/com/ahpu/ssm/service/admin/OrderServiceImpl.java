@@ -144,6 +144,11 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 	@Override
+	public int findcount(int state) {
+		return mapper.countorder(state);
+	}
+
+	@Override
 	public List<OrderItem> selectOrderItemByOid(String oid) {
 		// TODO Auto-generated method stub
 		return mapper.selectOrderItemByOid(oid);

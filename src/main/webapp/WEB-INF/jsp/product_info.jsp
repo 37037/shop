@@ -117,8 +117,10 @@
 								<c:forEach items="${comments }" var="c">
 								<tr class="warning">
 									<th width="50%">
-										<p>时间：${c.time.toLocaleString()},用户名：${c.username}</p>
+										<p>时间：${c.time.toLocaleString()}</p>
+                                        <p>评论人：${c.username}</p>
 											评论内容 ：<a>${c.comment}</a>
+                                        <p>评分：<img src="${pageContext.request.contextPath}/img/stars${c.grade}.gif" /> </p>
 									</th>
 									<c:if test="${empty c.anser}">
 										<th width="50%">店家暂时没有回复</th>
@@ -133,18 +135,18 @@
 						</table>
 					</div>
 
-					<div style="background-color:#d3d3d3;width:900px;">
-						<table class="table table-bordered">
-							<tbody>
-								<tr class="active">
-									<th><strong>商品咨询</strong></th>
-								</tr>
-								<tr class="warning">
-									<th>暂无商品咨询信息 <a>[发表商品咨询]</a></th>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+<%--					<div style="background-color:#d3d3d3;width:900px;">--%>
+<%--						<table class="table table-bordered">--%>
+<%--							<tbody>--%>
+<%--								<tr class="active">--%>
+<%--									<th><strong>商品咨询</strong></th>--%>
+<%--								</tr>--%>
+<%--								<tr class="warning">--%>
+<%--									<th>暂无商品咨询信息 <a>[发表商品咨询]</a></th>--%>
+<%--								</tr>--%>
+<%--							</tbody>--%>
+<%--						</table>--%>
+<%--					</div>--%>
 				</div>
 
 			</div>

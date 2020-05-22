@@ -185,5 +185,10 @@ public class UserServiceImpl implements UserService{
 		mapper.addcomments(comments);
 	}
 
+	@Override
+	public int selectcount(int state) {
+		return  mapper.selectcount(state);
+	}
+
 
 }

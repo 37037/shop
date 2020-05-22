@@ -37,15 +37,15 @@
 				</ol>
 			</div>
 			<c:forEach items="${page.list }" var="p">
-				<div class="panel panel-default col-md-2" style="height: 220px">
+				<div class="panel panel-default col-md-2" style="height: 250px">
 					<div class="panel-heading" align="center">
 						<a href="${pageContext.request.contextPath}/infoProduct.action?pid=${p.pid}"><img src="${pageContext.request.contextPath}/pic/${p.pimage}" width='100' height='100' style='display: inline-block;' alt="">
 						</a>
 					</div>
-					<div class="panel-body" align="center">
+					<div class="panel-body" align="center"  >
 						<p><a href="${pageContext.request.contextPath}/infoProduct.action?pid=${p.pid}">${p.pname}</a>
 						</p>
-						<p><span style="float: left">销量：${p.is_latest}</span> <span style="float: right">￥：${p.shop_price}</span>
+						<p ><span style="float: left">销量：${p.is_latest}</span> <span style="float: right">￥：${p.shop_price}</span>
 						</p>
 					</div>
 				</div>

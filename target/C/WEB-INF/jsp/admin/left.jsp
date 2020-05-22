@@ -14,7 +14,7 @@
             text-align: center;
         }
         div{
-            margin-top: 20px;
+
         }
     </style>
 </head>
@@ -72,27 +72,137 @@
 <%--    <p><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=3" target="mainFrame">已完成订单</a></p>--%>
 <%--    <p><a href="${pageContext.request.contextPath}/admin/notice.action" target="mainFrame">公告管理</a></p>--%>
 <%--    <p><a href="${pageContext.request.contextPath}/admin/getuser.action?curPage=1" target="mainFrame">用户管理</a></p>--%>
-    <div class="container">
-        <div class="row">
-            <div class="span8">
-                <ul class="nav nav-tabs nav-stacked">
+<%--    <div class="container">--%>
+<%--        <div class="row">--%>
+<%--            <div class="span8">--%>
+<%--                <ul class="nav nav-tabs nav-stacked">--%>
 
 
+<%--                    <li><a href="${pageContext.request.contextPath}/admin/msg.action" target="mainFrame">首页</a></li>--%>
 
-                    <li><a href="${pageContext.request.contextPath}/admin/listCategory.action" target="mainFrame">所有分类</a></li>
+<%--                    <li><a href="${pageContext.request.contextPath}/admin/listCategory.action" target="mainFrame">所有分类</a></li>--%>
+<%--                    <li><a href="${pageContext.request.contextPath}/admin/addCategory.action" target="mainFrame">添加分类</a></li>--%>
+<%--                    <li><a href="${pageContext.request.contextPath}/admin/listProduct.action?curPage=1" target="mainFrame">所有商品</a></li>--%>
+<%--                    <li><a href="${pageContext.request.contextPath}/admin/showAddProduct.action" target="mainFrame">添加商品</a></li>--%>
+<%--                    <li><a href="${pageContext.request.contextPath}/admin/listOrder.action?curPage=1" target="mainFrame">所有订单</a></li>--%>
+<%--                    <li><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=0" target="mainFrame">未付款订单</a></li>--%>
+<%--                    <li><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=2" target="mainFrame">已发货订单</a></li>--%>
+<%--                    <li><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=1" target="mainFrame">已付款订单</a></li>--%>
+<%--                    <li><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=3" target="mainFrame">已完成订单</a></li>--%>
+<%--                    <li><a href="${pageContext.request.contextPath}/admin/notice.action" target="mainFrame">公告管理</a></li>--%>
+<%--                    <li><a href="${pageContext.request.contextPath}/admin/getuser.action?curPage=1" target="mainFrame">用户管理</a></li>--%>
+<%--                    <li><a href="${pageContext.request.contextPath}/admin/anser.action?curPage=1" target="mainFrame">未回复评论</a></li>--%>
+<%--                    <li><a href="${pageContext.request.contextPath}/admin/yesanser.action?curPage=1" target="mainFrame">已回复评论</a></li>--%>
+<%--                </ul>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default" style="margin-top: 5px">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion"
+                       href="">
+                        <a href="${pageContext.request.contextPath}/admin/msg.action" target="mainFrame">首页</a>
+                    </a>
+                </h4>
+            </div>
+        </div>
+
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion"
+                   href="#collapseOne">
+                    分类管理
+                </a>
+            </h4>
+        </div>
+            <div id="collapseOne" class="panel-collapse collapse open">
+                <div class="panel-body">
+                    <ul class="nav nav-tabs nav-stacked">
+                   <li><a href="${pageContext.request.contextPath}/admin/listCategory.action" target="mainFrame">所有分类</a></li>
                     <li><a href="${pageContext.request.contextPath}/admin/addCategory.action" target="mainFrame">添加分类</a></li>
-                    <li><a href="${pageContext.request.contextPath}/admin/listProduct.action?curPage=1" target="mainFrame">所有商品</a></li>
-                    <li><a href="${pageContext.request.contextPath}/admin/showAddProduct.action" target="mainFrame">添加商品</a></li>
-                    <li><a href="${pageContext.request.contextPath}/admin/listOrder.action?curPage=1" target="mainFrame">所有订单</a></li>
-                    <li><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=0" target="mainFrame">未付款订单</a></li>
-                    <li><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=2" target="mainFrame">已发货订单</a></li>
-                    <li><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=1" target="mainFrame">已付款订单</a></li>
-                    <li><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=3" target="mainFrame">已完成订单</a></li>
-                    <li><a href="${pageContext.request.contextPath}/admin/notice.action" target="mainFrame">公告管理</a></li>
-                    <li><a href="${pageContext.request.contextPath}/admin/getuser.action?curPage=1" target="mainFrame">用户管理</a></li>
-                    <li><a href="${pageContext.request.contextPath}/admin/anser.action?curPage=1" target="mainFrame">未回复评论</a></li>
-                    <li><a href="${pageContext.request.contextPath}/admin/yesanser.action?curPage=1" target="mainFrame">已回复评论</a></li>
-                </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion"
+                       href="#collapseTwo">
+                        商品管理
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse open">
+                <div class="panel-body">
+                    <ul class="nav nav-tabs nav-stacked">
+                        <li><a href="${pageContext.request.contextPath}/admin/listProduct.action?curPage=1" target="mainFrame">所有商品</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/showAddProduct.action" target="mainFrame">添加商品</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion"
+                       href="#collapse3">
+                       订单管理
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse open">
+                <div class="panel-body">
+                    <ul class="nav nav-tabs nav-stacked">
+                        <li><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=0" target="mainFrame">未付款订单</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=2" target="mainFrame">已发货订单</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=1" target="mainFrame">已付款订单</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/listOrderQita.action?curPage=1&state=3" target="mainFrame">已完成订单</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion"
+                       href="#collapse4">
+                        用户及公告管理
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse open">
+                <div class="panel-body">
+                    <ul class="nav nav-tabs nav-stacked">
+                        <li><a href="${pageContext.request.contextPath}/admin/notice.action" target="mainFrame">公告管理</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/getuser.action?curPage=1" target="mainFrame">用户管理</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion"
+                       href="#collapse5">
+                        评论回复管理
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse open">
+                <div class="panel-body">
+                    <ul class="nav nav-tabs nav-stacked">
+                        <li><a href="${pageContext.request.contextPath}/admin/anser.action?curPage=1" target="mainFrame">未回复评论</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/yesanser.action?curPage=1" target="mainFrame">已回复评论</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

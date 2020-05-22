@@ -30,5 +30,6 @@ public interface UserService {
 	User finduser(String username);
 	void updatemessage(User user);
 	void addcomment(Comments comments);
+	int selectcount(int state);
 
 }

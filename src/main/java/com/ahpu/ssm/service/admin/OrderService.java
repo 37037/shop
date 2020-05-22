@@ -21,4 +21,5 @@ public interface OrderService {
 	PageBean userListDetail(int curPage,String oid);
 
 	Cart findcid(String cid);
+	int findcount(int state);
 }

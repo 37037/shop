@@ -19,7 +19,7 @@
 </HEAD>
 <body>
 <br>
-<form id="Form1" name="Form1" action="${pageContext.request.contextPath}/admin/find.action?curPage=1" method="post">
+<form id="Form1" name="Form1" method="post">
     <table cellSpacing="1" cellPadding="0" width="80%" align="center" bgColor="#808080" border="0">
         <TBODY>
         <tr>
@@ -94,37 +94,39 @@
                             </td>
                         </tr>
                     </c:forEach>
-                    <c:if test="${empty page.list}">
-                        <tr>
-                            <td align="center" colspan="7">找不到该商品</td>
-                        </tr>
-                    </c:if>
+<%--                    <c:if test="${empty page.list}">--%>
+<%--                        <tr>--%>
+<%--                            <td align="center" colspan="7">找不到该商品</td>--%>
+<%--                        </tr>--%>
+<%--                    </c:if>--%>
                 </table>
             </td>
         </tr>
         </TBODY>
     </table>
 </form>
-<div style="text-align: center;">
-    <ul class="pagination">
+<div style="width:380px;margin:0 auto;margin-top:50px;">
+    <ul class="pagination" style="text-align:center; margin-top:10px;">
+        <%--当前页不等于1的时候，显示上一页的图标 --%>
         <c:if test="${page.curPage != 1 }">
-            <li><a href="${pageContext.request.contextPath }/admin/find.action?curPage=${page.curPage - 1}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+            <li><a href="${pageContext.request.contextPath}/admin/find.action?curPage=${page.curPage - 1 }&name=${param.name}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
         </c:if>
 
         <c:forEach begin="1" end="${page.totalPage }" var="i">
-
+            <%--如果当前页是i，那么就高亮显示 --%>
             <c:if test="${page.curPage == i }">
-                <li class="active"><a>${i } </a></li>
+                <li class="active"><a>${i }</a></li>
             </c:if>
 
             <c:if test="${page.curPage != i }">
-
-                <li><a href="${pageContext.request.contextPath }/admin/find.action?curPage=${i}">${i }</a></li>
+                <li><a href="${pageContext.request.contextPath}/admin/find.action?curPage=${i }&name=${param.name}">${i }</a></li>
             </c:if>
         </c:forEach>
+
+        <%--当前页不等于总页数，那么就显示下一页的小图标 --%>
         <c:if test="${page.curPage != page.totalPage }">
             <li>
-                <a href="${pageContext.request.contextPath }/admin/find.action?curPage=${page.curPage + 1}" aria-label="Next">
+                <a href="${pageContext.request.contextPath}/admin/find.action?curPage=${page.curPage+1 }&name=${param.name}" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>

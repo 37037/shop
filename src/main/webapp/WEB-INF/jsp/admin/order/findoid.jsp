@@ -54,10 +54,10 @@
                 <strong>订单列表</strong>
             </TD>
         </tr>
-        <tr>
-            <td align="right"><input type="text" id="oid" name="oid" placeholder="请输入订单号"><button>查找</button></td>
+<%--        <tr>--%>
+<%--            <td align="right"><input type="text" id="oid" name="oid" placeholder="请输入订单号"><button>查找</button></td>--%>
 
-        </tr>
+<%--        </tr>--%>
         <tr>
             <td class="ta_01" align="center" bgColor="white">
                 <table cellspacing="0" cellpadding="1" rules="all"

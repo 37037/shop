@@ -184,7 +184,6 @@
                 },//提交整个表单的数据
                 success: function(msg){
                     if(msg=='yes'){  //修改成功
-                        alert("添加成功");
                         history.go(0)
                     }else{ //修改失败
                         alert("添加失败")

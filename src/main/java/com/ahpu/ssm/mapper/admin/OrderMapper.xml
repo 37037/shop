@@ -126,5 +126,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findcid" parameterType="String" resultType="com.ahpu.ssm.pojo.Cart">
 		select * from car where cid=#{cid}
 	</select>
+	<select id="countorder" parameterType="int" resultType="int">
+		select count(*) from orders where state=#{state};
+	</select>
 	
 </mapper>

@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.ahpu.ssm.pojo.*;
+import com.ahpu.ssm.service.admin.OrderService;
 import com.ahpu.ssm.service.admin.ProductService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import com.ahpu.ssm.service.UserService;
 import com.ahpu.ssm.util.UUIDUtil;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -25,6 +27,8 @@ public class AdminController {
 	UserService service;
 	@Autowired
 	ProductService service1;
+	@Autowired
+	OrderService service2;
 	@RequestMapping("/getuser")
 	public ModelAndView getuser(int curPage){
 		ModelAndView mav=new ModelAndView();
@@ -123,6 +127,32 @@ public class AdminController {
 	public String welcome() {
 		return "admin/welcome";
 	}
+	@RequestMapping("/msg")
+	public ModelAndView msg() {
+		int s0=service2.findcount(0);
+		int s1=service2.findcount(1);
+		int s2=service2.findcount(2);
+		int s3=service2.findcount(3);
+		int s4=service2.findcount(4);
+		List list= new ArrayList();
+
+		list.add(s0);
+		list.add(s1);
+		list.add(s2);
+		list.add(s3);
+		list.add(s4);
+
+		List list1=new ArrayList();
+		list1.add(service.selectcount(0));
+		System.out.println(service.selectcount(0));
+		list1.add(service.selectcount(1));
+
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("list",list);
+		mav.addObject("list1",list1);
+		mav.setViewName("admin/msg");
+		return mav;
+	}
 	@RequestMapping("/notice")
     public  ModelAndView notice(){
 	   List<notice> list= service.findnotice();
@@ -191,4 +221,5 @@ public class AdminController {
 
 		return mav;
 	}
+
 }

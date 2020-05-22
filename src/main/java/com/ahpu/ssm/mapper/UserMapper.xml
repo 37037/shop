@@ -108,9 +108,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from notice where nid=#{nid}
 	</delete>
 	<insert id="addcomments" parameterType="com.ahpu.ssm.pojo.Comments">
-		insert into goodscomments(comment,time,pid,username) values(#{comment},#{time},#{pid},#{username});
+		insert into goodscomments(comment,time,pid,username,grade) values(#{comment},#{time},#{pid},#{username},#{grade});
 	</insert>
-
+	<select id="selectcount" resultType="int" parameterType="int">
+		select count(*) from goodscomments where state=#{state}
+	</select>
 </mapper>
 
 

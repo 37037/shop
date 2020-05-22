@@ -41,6 +41,7 @@
                 <tr class="warning">
                     <th>图片</th>
                     <th>商品</th>
+                    <th>评分</th>
 
                     <th>评论</th>
 <%--                    <th>操作</th>--%>
@@ -53,13 +54,20 @@
 
                 <c:forEach items="${list }" var="orderitem" varStatus="v">
                     <tr class="active">
-                        <td  width="20%">
+                        <td  width="5%">
                             <input type="hidden"  value="22">
                             <img src="${pageContext.request.contextPath}/pic/${orderitem.product.pimage}" width="70" height="60">
                         </td>
 
-                        <td width="20%">
+                        <td width="18%" align="center">
                             <a>${orderitem.product.pname }</a>
+                        </td>
+                        <td align="center" bgcolor="#ffffff">
+                            <input name="num_${v.index}" type="radio" value="1" id="num" /> <img src="${pageContext.request.contextPath}/img/stars1.gif" />
+                            <input name="num_${v.index}" type="radio" value="2" id="num" /> <img src="${pageContext.request.contextPath}/img/stars2.gif" />
+                            <input name="num_${v.index}" type="radio" value="3" id="num" /> <img src="${pageContext.request.contextPath}/img/stars3.gif" />
+                            <input name="num_${v.index}" type="radio" value="4" id="num" /> <img src="${pageContext.request.contextPath}/img/stars4.gif" />
+                            <input name="num_${v.index}" type="radio" value="5" checked="checked" id="num" /> <img src="${pageContext.request.contextPath}/img/stars5.gif" />
                         </td>
                         <td width="10%">
                             <input type="text" name="comment${v.index}" placeholder="请评论">

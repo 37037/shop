@@ -26,4 +26,5 @@ public interface OrderMapper {
 	int selectCountByUsernameid(String usernameid);
 	int selectCountByOid(String oid);
 	Cart findcid(String cid);
+	int countorder(int state);
 }

@@ -64,7 +64,8 @@ public class UserController {
 			
 			// 添加到session
 			session.setAttribute("user", user);
-			mav.setViewName("index");
+			String url ="redirect:http://localhost:8080/C/index.action";
+			mav.setViewName(url);
 			return mav;
 		}else {
 			// 失败
@@ -128,6 +129,7 @@ public class UserController {
 			c.setUsername(u.getUsername());
 			c.setTime(new Date(System.currentTimeMillis()));
 			c.setPid(re.getParameter("pid"+i));
+			c.setGrade(re.getParameter("num_"+i));
 			c.setComment(re.getParameter("comment"+i));
 			System.out.println(c.getComment());
 			service.addcomment(c);
