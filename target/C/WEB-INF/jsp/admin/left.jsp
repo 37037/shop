@@ -16,6 +16,11 @@
         div{
 
         }
+        a{
+
+            text-decoration:none;
+
+        }
     </style>
 </head>
 <%--<body>--%>
@@ -103,7 +108,7 @@
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion"
                        href="">
-                        <a href="${pageContext.request.contextPath}/admin/msg.action" target="mainFrame">首页</a>
+                        <a href="${pageContext.request.contextPath}/admin/msg.action" target="mainFrame" style='text-decoration:none;'>首页</a>
                     </a>
                 </h4>
             </div>
@@ -113,7 +118,7 @@
             <div class="panel-heading">
             <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion"
-                   href="#collapseOne">
+                   href="#collapseOne" style='text-decoration:none;'>
                     分类管理
                 </a>
             </h4>
@@ -132,7 +137,7 @@
             <div class="panel-heading">
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion"
-                       href="#collapseTwo">
+                       href="#collapseTwo" style='text-decoration:none;'>
                         商品管理
                     </a>
                 </h4>
@@ -151,7 +156,7 @@
             <div class="panel-heading">
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion"
-                       href="#collapse3">
+                       href="#collapse3" style='text-decoration:none;'>
                        订单管理
                     </a>
                 </h4>
@@ -168,11 +173,11 @@
             </div>
         </div>
 
-        <div class="panel panel-default">
+        <div class="panel panel-default" style='text-decoration:none;'>
             <div class="panel-heading">
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion"
-                       href="#collapse4">
+                       href="#collapse4" style='text-decoration:none;'>
                         用户及公告管理
                     </a>
                 </h4>
@@ -191,7 +196,7 @@
             <div class="panel-heading">
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion"
-                       href="#collapse5">
+                       href="#collapse5" style='text-decoration:none;'>
                         评论回复管理
                     </a>
                 </h4>

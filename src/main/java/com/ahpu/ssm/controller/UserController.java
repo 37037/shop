@@ -161,6 +161,7 @@ public class UserController {
 		User loginUser = (User) session.getAttribute("user");
 		List<Address> list=new ArrayList<>();
 		list=service.getlist(loginUser);
+
 		mav.setViewName("adress");
 		mav.addObject("list",list);
 

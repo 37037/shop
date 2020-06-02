@@ -7,71 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22c21c9d-ebaf-451c-aff2-099809938920" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/b.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/e.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/stars0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/stars1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/stars2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/stars3.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/stars4.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/stars5.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/controller/admin/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/controller/admin/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/controller/admin/AdminOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/controller/admin/AdminOrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/mapper/admin/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/mapper/admin/OrderMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/mapper/admin/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/mapper/admin/OrderMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/pojo/Comments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/pojo/Comments.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/service/admin/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/service/admin/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/service/admin/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/service/admin/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/home.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/left.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/left.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/msg.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/msg.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/order/findoid.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/order/findoid.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/product/findp.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/product/findp.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/adress.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/adress.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/comments.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/comments.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/product_info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/product_info.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/product_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/product_list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/controller/admin/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/controller/admin/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/controller/admin/AdminOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/controller/admin/AdminOrderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/mapper/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/mapper/admin/OrderMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/mapper/admin/OrderMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/mapper/admin/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/mapper/admin/OrderMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/service/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/service/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/service/admin/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/service/admin/OrderService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/service/admin/OrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/classes/com/ahpu/ssm/service/admin/OrderServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/jsp/admin/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/jsp/admin/home.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/jsp/admin/left.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/jsp/admin/left.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/jsp/admin/msg.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/jsp/admin/msg.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/jsp/admin/order/findoid.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/jsp/admin/order/findoid.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/jsp/admin/product/findp.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/jsp/admin/product/findp.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/jsp/adress.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/jsp/adress.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/jsp/comments.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/jsp/comments.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/jsp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/jsp/product_info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/jsp/product_info.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/C/WEB-INF/jsp/product_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/C/WEB-INF/jsp/product_list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/controller/admin/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/controller/admin/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/controller/admin/AdminOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/controller/admin/AdminOrderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/mapper/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/mapper/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/mapper/admin/OrderMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/mapper/admin/OrderMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/mapper/admin/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/mapper/admin/OrderMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/service/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/service/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/service/admin/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/service/admin/OrderService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/service/admin/OrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ahpu/ssm/service/admin/OrderServiceImpl.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -85,27 +26,59 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.49517167">
+    <splitter split-orientation="horizontal" split-proportion="0.4799223">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/comments.jsp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="675">
-                  <caret line="63" column="29" lean-forward="true" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
+                <state relative-caret-position="375">
+                  <caret line="15" column="11" lean-forward="true" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
                 </state>
               </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/msg.jsp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="400">
+                  <caret line="16" selection-start-line="16" selection-end-line="16" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/order/list2.jsp">
+              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/ahpu/ssm/controller/UserController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="175">
-                  <caret line="155" column="19" lean-forward="true" selection-start-line="155" selection-start-column="19" selection-end-line="155" selection-end-column="19" />
+                <state relative-caret-position="3525">
+                  <caret line="163" selection-start-line="163" selection-end-line="163" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/ahpu/ssm/controller/admin/AdminCategroyController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="150">
+                  <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/ahpu/ssm/controller/admin/AdminController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="2019">
+                  <caret line="215" selection-start-line="215" selection-end-line="215" />
                 </state>
               </provider>
             </entry>
@@ -174,12 +147,12 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/product_list.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/msg.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/left.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/comments.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/pojo/Comments.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/mapper/UserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/product_info.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/left.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ahpu/ssm/controller/UserController.java" />
       </list>
     </option>
   </component>
@@ -218,7 +191,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="154" />
     <option name="y" value="20" />
     <option name="width" value="1204" />
@@ -363,54 +336,7 @@
               <item name="C" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resource" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="C" type="b2602c69:ProjectViewProjectNode" />
-              <item name="C" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resource" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="C" type="b2602c69:ProjectViewProjectNode" />
-              <item name="C" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resource" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="C" type="b2602c69:ProjectViewProjectNode" />
-              <item name="C" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="C" type="b2602c69:ProjectViewProjectNode" />
-              <item name="C" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="C" type="b2602c69:ProjectViewProjectNode" />
-              <item name="C" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="C" type="b2602c69:ProjectViewProjectNode" />
-              <item name="C" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="C" type="b2602c69:ProjectViewProjectNode" />
@@ -449,17 +375,6 @@
               <item name="jsp" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="order" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="C" type="b2602c69:ProjectViewProjectNode" />
-              <item name="C" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="product" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="C" type="b2602c69:ProjectViewProjectNode" />
@@ -522,6 +437,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 8.5.4" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.4" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="C:war exploded">
@@ -649,7 +565,11 @@
       <workItem from="1589957349787" duration="2215000" />
       <workItem from="1590044418146" duration="4711000" />
       <workItem from="1590109846088" duration="2884000" />
-      <workItem from="1590115183841" duration="11588000" />
+      <workItem from="1590115183841" duration="13623000" />
+      <workItem from="1590382859901" duration="3861000" />
+      <workItem from="1590539129943" duration="3047000" />
+      <workItem from="1590760656421" duration="1392000" />
+      <workItem from="1591086320873" duration="291000" />
     </task>
     <task id="LOCAL-00001" summary="5-9">
       <created>1588995088657</created>
@@ -662,13 +582,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="371330000" />
+    <option name="totallyTimeSpent" value="381956000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="-9" y="-9" width="1618" height="870" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17650215" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.18717617" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -678,7 +598,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299435" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.13363533" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.1308677" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -774,24 +694,6 @@
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ahpu/ssm/controller/admin/AdminController.java</url>
-          <line>216</line>
-          <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ahpu/ssm/controller/admin/AdminController.java</url>
-          <line>214</line>
-          <properties />
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ahpu/ssm/controller/admin/AdminController.java</url>
-          <line>215</line>
-          <properties />
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/ahpu/ssm/mapper/admin/ProductMapper.java</url>
           <line>45</line>
@@ -802,20 +704,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/order_info.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="166" column="39" selection-start-line="166" selection-start-column="39" selection-end-line="166" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/Style1.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="334" column="13" selection-start-line="334" selection-start-column="13" selection-end-line="334" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/adress.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -885,13 +773,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3200">
           <caret line="128" column="63" selection-start-line="128" selection-start-column="63" selection-end-line="128" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ahpu/ssm/controller/admin/AdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="130" column="31" selection-start-line="130" selection-start-column="31" selection-end-line="130" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -990,13 +871,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/img/e.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/msg.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2725">
-          <caret line="109" column="23" selection-start-line="109" selection-start-column="23" selection-end-line="109" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1018,13 +892,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/left.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2625">
-          <caret line="105" column="111" selection-start-line="105" selection-start-column="111" selection-end-line="105" selection-end-column="111" />
         </state>
       </provider>
     </entry>
@@ -1105,17 +972,48 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/comments.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/msg.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="63" column="29" lean-forward="true" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
+        <state relative-caret-position="400">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/order/list2.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ahpu/ssm/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="155" column="19" lean-forward="true" selection-start-line="155" selection-start-column="19" selection-end-line="155" selection-end-column="19" />
+        <state relative-caret-position="3525">
+          <caret line="163" selection-start-line="163" selection-end-line="163" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ahpu/ssm/controller/admin/AdminCategroyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/left.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2233">
+          <caret line="160" column="24" lean-forward="true" selection-start-line="160" selection-start-column="24" selection-end-line="160" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/comments.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="11" lean-forward="true" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ahpu/ssm/controller/admin/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2019">
+          <caret line="215" selection-start-line="215" selection-end-line="215" />
         </state>
       </provider>
     </entry>
